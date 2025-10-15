@@ -43,6 +43,125 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+:root {
+      --primary: #2563eb;
+      --primary-foreground: #fff;
+      --secondary: #e5e7eb;
+      --secondary-foreground: #111;
+      --destructive: #dc2626;
+      --background: #fff;
+      --foreground: #111;
+      --accent: #f1f5f9;
+      --accent-foreground: #111;
+    }
+
+    button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+      outline: none;
+    }
+
+    button:disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    button:focus-visible {
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.4);
+    }
+
+    /* Variants */
+    .btn-default {
+      background: var(--primary);
+      color: var(--primary-foreground);
+    }
+    .btn-default:hover {
+      background: #1d4ed8;
+    }
+
+    .btn-destructive {
+      background: var(--destructive);
+      color: white;
+    }
+    .btn-destructive:hover {
+      background: #b91c1c;
+    }
+
+    .btn-outline {
+      background: var(--background);
+      color: var(--foreground);
+      border: 1px solid #d1d5db;
+    }
+    .btn-outline:hover {
+      background: var(--accent);
+    }
+
+    .btn-secondary {
+      background: var(--secondary);
+      color: var(--secondary-foreground);
+    }
+    .btn-secondary:hover {
+      background: #d1d5db;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--foreground);
+    }
+    .btn-ghost:hover {
+      background: var(--accent);
+    }
+
+    .btn-link {
+      background: none;
+      border: none;
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .btn-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Sizes */
+    .btn-sm {
+      height: 32px;
+      padding: 0 12px;
+      font-size: 13px;
+    }
+
+    .btn-default-size {
+      height: 36px;
+      padding: 0 16px;
+    }
+
+    .btn-lg {
+      height: 40px;
+      padding: 0 24px;
+      font-size: 15px;
+    }
+
+    .btn-icon {
+      height: 36px;
+      width: 36px;
+      padding: 0;
+    }
+
+    /* SVG styling */
+    button svg {
+      height: 16px;
+      width: 16px;
+      pointer-events: none;
+    }
+
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
