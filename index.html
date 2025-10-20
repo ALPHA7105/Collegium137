@@ -361,25 +361,42 @@
     margin-bottom: 10px; /* reduce gap below the divider */
   }
 
-  .contact-container {
+  .contact-cards {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    align-items: stretch;
     gap: 25px;
     margin-top: 40px;
+    flex-wrap: wrap;
   }
 
-  .contact-card {
-    background: rgba(255,255,255,0.05);
-    padding: 25px;
-    border-radius: 16px;
-    width: 260px;
-    transition: 0.3s;
+  .contact-cards .feature-card {
+    flex: 1 1 250px;
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
-  .contact-card:hover {
+  .contact-cards .feature-card:hover {
     transform: translateY(-5px);
-    background: rgba(255,255,255,0.08);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+
+  /* Icon and text styling (reuse existing feature-card styles) */
+  .contact-cards .feature-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .contact-cards .feature-title {
+    font-weight: 600;
+    color: #03e3fc;
+    margin-bottom: 5px;
+  }
+
+  .contact-cards .feature-desc {
+    color: rgba(255,255,255,0.7);
+    font-size: 1rem;
   }
 
   .contact-card .icon {
