@@ -1,80 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About | Collegium of Minds</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Collegium of Minds</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="Comm.png">
+<style>
+  /* Hero-like background for About page */
+  .about-hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #000000, #020202);
+    overflow: hidden;
+    padding-top: 80px;
+  }
+
+  .about-hero h1 {
+    font-weight: 800;
+    font-size: 4rem;
+    margin: 0;
+    background: linear-gradient(135deg, #03e3fc 0%, #03fca5 50%, #03e3fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 40px rgba(3, 227, 252, 0.5);
+    text-align: center;
+  }
+
+  .about-hero p {
+    color: rgba(255,255,255,0.7);
+    max-width: 700px;
+    margin: 20px auto 0;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  /* Feature & Member cards */
+  .features, .members, .timeline {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .feature-card, .member-card, .timeline-card {
+    flex: 1 1 250px;
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: rgba(3,227,252,0.05);
+    border: 1px solid rgba(3,227,252,0.2);
+    border-radius: 12px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+  }
+
+  .feature-card:hover, .member-card:hover, .timeline-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
+
+  .feature-icon, .member-icon, .timeline-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #03e3fc;
+  }
+
+  .feature-title, .member-name, .timeline-year {
+    font-weight: 600;
+    color: #03fca5;
+    margin-bottom: 5px;
+  }
+
+  .feature-desc, .member-role, .timeline-desc {
+    color: rgba(255,255,255,0.7);
+    font-size: 1rem;
+  }
+
+  /* See More button */
+  .center-btn {
+    text-align: center;
+    margin: 40px 0;
+  }
+
+  .center-btn .button {
+    display: inline-block;
+    width: auto;
+    padding: 15px 35px;
+    font-size: 1.2rem;
+    background: transparent;
+    border: 2px solid #03e3fc;
+    color: #03e3fc;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .center-btn .button:hover {
+    background: #03e3fc;
+    color: #000;
+  }
+
+  /* Timeline section */
+  .timeline {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .timeline-card {
+    margin: 20px 0;
+  }
+</style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <div class="navbar">
-    <div class="navbar-container">
-      <div class="navbar-logo">
-        <div class="beaker"></div>
-        <div class="navbar-logo-text">CoM</div>
-      </div>
-      <div class="navbar-links">
-        <a href="index.html">Home</a>
-        <a href="about.html" class="active">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="members.html">Members</a>
-        <a href="timeline.html">Timeline</a>
-      </div>
+<!-- Navbar (same as main page) -->
+<div class="navbar" id="navbar">
+  <div class="navbar-container">
+    <div class="navbar-logo">
+      <div class="beaker"><img src="Comm.png" style="width:30px;height:30px;"></div>
+      <span class="navbar-logo-text">The Collegium Of Minds</span>
+    </div>
+    <div class="navbar-links" id="navbar-links">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="members.html">Members</a>
+      <a href="timeline.html">Timeline</a>
     </div>
   </div>
+</div>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="title">
-      <h1>About the Collegium of Minds</h1>
-      <p>
-        A hub for thinkers, innovators, and dreamers. At CoM, curiosity isn’t just encouraged — it’s the core of everything we do.
-      </p>
-    </div>
-
-    <!-- Optional floating orbs / particles for creativity -->
-    <div class="particles">
-      <div class="particle" style="top:20%; left:30%; background:#03e3fc;"></div>
-      <div class="particle" style="top:60%; left:70%; background:#03fca5;"></div>
-      <div class="particle" style="top:40%; left:50%; background:#03e3fc;"></div>
-    </div>
-  </section>
-
-  <!-- About Detailed Section -->
-  <section class="about-detailed" style="padding:80px 20px; max-width:1000px; margin:auto;">
-    <h2>Our Mission</h2>
-    <p>
-      The Collegium of Minds (CoM) seeks to create a space where inquisitive minds can collaborate, experiment, and innovate.  
-      Our mission is to push the boundaries of science, philosophy, and technology while fostering a community driven by curiosity and creativity.
-    </p>
-
-    <h2>What We Do</h2>
-    <ul>
-      <li>Host events, workshops, and competitions that challenge intellects.</li>
-      <li>Develop projects and research initiatives that explore new horizons.</li>
-      <li>Encourage members to think critically, question assumptions, and reimagine the future.</li>
-      <li>Share knowledge across disciplines — from physics and AI to philosophy and arts.</li>
-    </ul>
-
-    <h2>Why CoM is Unique</h2>
-    <p>
-      At CoM, learning is an adventure. Our members don’t just study concepts — they bring ideas to life.  
-      Through collaboration, experimentation, and guided mentorship, each participant grows as a thinker, innovator, and creator.
-    </p>
-
-    <div style="text-align:center; margin-top:40px;">
-      <a href="index.html" class="see-more">← Back to Home</a>
-    </div>
-  </section>
-
-  <!-- Optional floating cards for aesthetic -->
-  <div class="floating-cards">
-    <div class="card" style="top:30%; left:20%;">⚛️</div>
-    <div class="card" style="top:50%; left:60%;">💫</div>
-    <div class="card" style="top:70%; left:35%;">🚀</div>
+<!-- Hero Section -->
+<section class="about-hero">
+  <div>
+    <h1>About the Collegium of Minds</h1>
+    <p>Exploring knowledge, fostering creativity, and inspiring the next generation of thinkers, innovators, and dreamers.</p>
   </div>
+</section>
+
+<!-- Features Section -->
+<section class="features">
+  <div class="feature-card">
+    <div class="feature-icon">⚛️</div>
+    <div class="feature-title">Scientific Innovation</div>
+    <div class="feature-desc">Experiments, research, and exploration of new ideas that redefine the boundaries of knowledge.</div>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">🚀</div>
+    <div class="feature-title">Future Forward</div>
+    <div class="feature-desc">Projects and initiatives designed to anticipate challenges and create opportunities for tomorrow.</div>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">🧠</div>
+    <div class="feature-title">Collaborative Spirit</div>
+    <div class="feature-desc">Building a community where thinkers, dreamers, and innovators share, discuss, and create together.</div>
+  </div>
+</section>
+
+<!-- Members Section -->
+<section class="members">
+  <div class="member-card">
+    <div class="member-icon">👨‍🚀</div>
+    <div class="member-name">Sarvesh Kore</div>
+    <div class="member-role">Founder & Research Lead</div>
+  </div>
+  <div class="member-card">
+    <div class="member-icon">🧑‍🔬</div>
+    <div class="member-name">Mohamed Shahaan</div>
+    <div class="member-role">Co-Founder & Innovation Head</div>
+  </div>
+  <div class="member-card">
+    <div class="member-icon">🧑‍💻</div>
+    <div class="member-name">Member 3</div>
+    <div class="member-role">Project Coordinator</div>
+  </div>
+</section>
+
+<!-- Timeline Section -->
+<section class="timeline">
+  <div class="timeline-card">
+    <div class="timeline-year">Jan 2025</div>
+    <div class="timeline-desc">Collegium of Minds founded. First members joined.</div>
+  </div>
+  <div class="timeline-card">
+    <div class="timeline-year">Mar 2025</div>
+    <div class="timeline-desc">Hosted first ThinkTank session and small workshop.</div>
+  </div>
+  <div class="timeline-card">
+    <div class="timeline-year">Jun 2025</div>
+    <div class="timeline-desc">Brain Blitz interschool quiz festival organized.</div>
+  </div>
+</section>
+
+<!-- See More Button -->
+<div class="center-btn">
+  <button class="button" onclick="location.href='index.html'">Back to Home</button>
+</div>
 
 </body>
 </html>
