@@ -417,6 +417,59 @@
   .contact-link:hover {
     text-decoration: underline;
   }
+
+  .features, .members, .timeline {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .feature-card, .member-card, .timeline-card {
+    flex: 1 1 250px;
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: rgba(3,227,252,0.05);
+    border: 1px solid rgba(3,227,252,0.2);
+    border-radius: 12px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+  }
+
+  .feature-card:hover, .member-card:hover, .timeline-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
+
+  .feature-icon, .member-icon, .timeline-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #03e3fc;
+  }
+
+  .feature-title, .member-name, .timeline-year {
+    font-weight: 600;
+    color: #03fca5;
+    margin-bottom: 5px;
+  }
+
+  .feature-desc, .member-role, .timeline-desc {
+    color: rgba(255,255,255,0.7);
+    font-size: 1rem;
+  }
+
+  .timeline {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .timeline-card {
+    margin: 20px 0;
+  }
   
 </style>
 </head>
@@ -431,56 +484,13 @@
     </div>
     <div class="navbar-links" id="navbar-links">
       <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#events">Events</a>
-      <a href="#contact">Contact</a>
+      <a href="#members">Members</a>
+      <a href="#timeline">Timeline</a>
     </div>
   </div>
 </div>
 
-  <section id="home">
-    <!-- Hero Section -->
-    <div class="hero" id="hero">
-      <div class="grid"></div>
 
-      <!-- Orbs -->
-      <div class="orb" style="width:400px; height:400px; left:10%; top:20%; background: radial-gradient(circle, #03e3fc40 0%, transparent 70%); animation: float1 20s infinite alternate;"></div>
-      <div class="orb" style="width:300px; height:300px; left:80%; top:60%; background: radial-gradient(circle, #03fca540 0%, transparent 70%); animation: float2 25s infinite alternate;"></div>
-      <div class="orb" style="width:250px; height:250px; left:60%; top:10%; background: radial-gradient(circle, #03e3fc40 0%, transparent 70%); animation: float3 18s infinite alternate;"></div>
-      <div class="orb" style="width:350px; height:350px; left:20%; top:70%; background: radial-gradient(circle, #03fca540 0%, transparent 70%); animation: float4 22s infinite alternate;"></div>
-      <div class="orb" style="width:200px; height:200px; left:90%; top:30%; background: radial-gradient(circle, #03e3fc40 0%, transparent 70%); animation: float5 15s infinite alternate;"></div>
-
-      <!-- Particles -->
-      <div class="particles">
-        <div class="particle" style="left: 50%; top: 50%; background: #03e3fc;"></div>
-        <div class="particle" style="left: 60%; top: 50%; background: #03fca5;"></div>
-        <div class="particle" style="left: 40%; top: 50%; background: #03e3fc;"></div>
-        <div class="particle" style="left: 50%; top: 60%; background: #03fca5;"></div>
-      </div>
-
-      <div class="title" id="title">
-        <h1>The Collegium</h1>
-        <br>
-        <h2>Of Minds</h2>
-        <br>
-        <button class="button" onclick="location.href = '#about'">About</button>
-        <br>
-      </div>
-
-      <!-- Floating Cards -->
-      <div class="floating-cards">
-        <div class="card" style="left:15%; top:25%; animation-delay:0s;">🔬</div>
-        <div class="card" style="left:85%; top:35%; animation-delay:0.5s;">⚛️</div>
-        <div class="card" style="left:10%; top:75%; animation-delay:1s;">🧬</div>
-        <div class="card" style="left:90%; top:70%; animation-delay:1.5s;">🚀</div>
-      </div>
-
-      <div class="scroll-indicator">
-        <div class="dot"></div>
-      </div>
-    </div>
-  </section>
-  
   <section id="about">
     <!-- Background blobs -->
     <div class="blob blob1"></div>
@@ -523,6 +533,7 @@ Our aim is to inspire a generation that learns not just to think, but to rethink
       </div>
     </div>
 
+    
     <!-- Stats Grid -->
     <div class="stats">
       <div class="stat-card">
@@ -553,6 +564,26 @@ Our aim is to inspire a generation that learns not just to think, but to rethink
 
   <hr class="section-divider">
 
+
+  <section class="members">
+    <div class="member-card">
+      <div class="member-icon">👨‍🚀</div>
+      <div class="member-name">Sarvesh Kore</div>
+      <div class="member-role">Founder & Research Lead</div>
+    </div>
+    <div class="member-card">
+      <div class="member-icon">🧑‍🔬</div>
+      <div class="member-name">Mohamed Shahaan</div>
+      <div class="member-role">Co-Founder & Innovation Head</div>
+    </div>
+    <div class="member-card">
+      <div class="member-icon">🧑‍💻</div>
+      <div class="member-name">Member 3</div>
+      <div class="member-role">Project Coordinator</div>
+    </div>
+  </section>
+
+  
   <!-- Projects Section -->
   <section id="projects">
     <div class="section-header">
