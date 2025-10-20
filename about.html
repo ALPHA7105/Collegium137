@@ -373,6 +373,12 @@
     backdrop-filter: blur(10px);
   }
 
+  .member-card {
+    flex: 1 1 calc(25% - 25px); /* 4 cards per row with gap */
+    max-width: calc(25% - 25px);
+    min-width: 200px; /* optional: don't shrink too much */
+    text-align: center;
+  }
   .feature-card:hover, .member-card:hover, .timeline-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
