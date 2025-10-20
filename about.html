@@ -3,90 +3,326 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About | Collegium of Minds</title>
+<title>The Collegium of Minds</title>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 <link rel="stylesheet" href="style.css">
 <link rel="icon" type="image/png" href="Comm.png">
 <style>
-  /* Hero-like background for About page */
-  .about-hero {
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+    background: black;
+    font-family: sans-serif;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+    perspective: 1200px;
+    
+  }
+
+  /* Navbar */
+  .navbar { 
+    position: fixed; 
+    top: -100px; 
+    left: 0; 
+    right: 0; 
+    z-index: 50; 
+    background: rgba(0,0,0,0.8); 
+    backdrop-filter: blur(10px); 
+    border-bottom: 1px solid rgba(3,227,252,0.2); 
+    transition: top 0.8s ease-out, 
+    opacity 0.8s ease-out; 
+    opacity: 0; }
+
+  .navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+
+  .navbar-logo:hover {
+    transform: scale(1.05);
+  }
+
+  .beaker {
     position: relative;
-    min-height: 60vh;
+    width: 32px;
+    height: 32px;
+    color: #03e3fc;
+  }
+
+  .beaker::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #03e3fc;
+    filter: blur(12px);
+    opacity: 0.5;
+    border-radius: 50%;
+  }
+
+  .navbar-logo-text {
+    background: linear-gradient(to right, #03e3fc, #03fca5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+  }
+
+  .navbar-links {
+    display: none;
+    gap: 32px;
+  }
+
+  @media(min-width: 768px) {
+    .navbar-links {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .navbar-links a {
+    position: relative;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
+    display: inline-block;
+  }
+
+  .navbar-links a:hover {
+    color: #03e3fc;
+    transform: translateY(-2px);
+  }
+
+  .navbar-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 2px;
+    background: linear-gradient(to right, #03e3fc, #03fca5);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .navbar-links a:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #000000, #020202);
     overflow: hidden;
     padding-top: 80px;
   }
 
-  .about-hero h1 {
+  /* Orbs */
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    animation: float linear infinite alternate;
+  }
+
+  /* Grid Overlay */
+  .grid {
+    position: absolute;
+    inset: 0;
+    opacity: 0.1;
+    background-image:
+      linear-gradient(#03e3fc 1px, transparent 1px),
+      linear-gradient(90deg, #03e3fc 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  .title {
+    text-align: center;
+    z-index: 10;
+    max-width: 1200px;
+    padding: 0 20px;
+    position: relative;
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 0.1s, opacity 0.1s;
+  }
+
+  h1 {
     font-weight: 800;
-    font-size: 4rem;
+    font-size: 6rem;
     margin: 0;
     background: linear-gradient(135deg, #03e3fc 0%, #03fca5 50%, #03e3fc 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 40px rgba(3, 227, 252, 0.5);
-    text-align: center;
+    text-shadow: 0 0 80px rgba(3, 227, 252, 0.5);
+    display: inline-block;
+    animation: rotateY 5s infinite ease-in-out;
   }
 
-  .about-hero p {
-    color: rgba(255,255,255,0.7);
-    max-width: 700px;
-    margin: 20px auto 0;
+  h2 {
+    font-weight: 800;
+    font-size: 6rem;
+    margin: 0;
+    background: linear-gradient(135deg, #03fca5 0%, #03e3fc 50%, #03fca5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 80px rgba(3, 252, 165, 0.5);
+    display: inline-block;
+    background-size: 200% 200%;
+    animation: gradientMove 5s infinite linear;
+  }
+
+  p {
+    font-size: 1.5rem;
+    color: rgba(255,255,255,0.6);
+    max-width: 600px;
+    margin: 20px auto 50px;
+  }
+
+  .button {
+    position: relative;
+    display: inline-block;
+    padding: 20px 40px;
     font-size: 1.2rem;
-    text-align: center;
+    background: linear-gradient(to right, #03e3fc, #03fca5);
+    color: black;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s;
+    box-shadow: 0 0 40px rgba(3, 227, 252, 0.5), 0 0 60px rgba(3, 252, 165, 0.3);
   }
 
-  /* Feature & Member cards */
-  .features, .members, .timeline {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px;
-    padding: 50px 20px;
-    max-width: 1200px;
-    margin: auto;
+  .button:hover {
+    background: linear-gradient(to right, #03fca5, #03e3fc);
   }
 
-  .feature-card, .member-card, .timeline-card {
-    flex: 1 1 250px;
-    max-width: 300px;
-    text-align: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    background: rgba(3,227,252,0.05);
-    border: 1px solid rgba(3,227,252,0.2);
-    border-radius: 12px;
-    padding: 20px;
-    backdrop-filter: blur(10px);
+  .feature-card {
+    text-decoration: none;
+    color: inherit; /* ensures it keeps the same text color */
+    display: block; /* makes the whole card clickable */
   }
 
-  .feature-card:hover, .member-card:hover, .timeline-card:hover {
+  .feature-card:hover {
+    text-decoration: none;
+    color: inherit;
     transform: translateY(-5px);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
   }
 
-  .feature-icon, .member-icon, .timeline-icon {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    color: #03e3fc;
+  .particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    animation: pulse 3s infinite;
   }
 
-  .feature-title, .member-name, .timeline-year {
-    font-weight: 600;
-    color: #03fca5;
-    margin-bottom: 5px;
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(20px); }
   }
 
-  .feature-desc, .member-role, .timeline-desc {
-    color: rgba(255,255,255,0.7);
-    font-size: 1rem;
+  @keyframes rotateY {
+    0%, 100% { transform: rotateY(0deg); }
+    25% { transform: rotateY(10deg); }
+    50% { transform: rotateY(0deg); }
+    75% { transform: rotateY(-10deg); }
   }
 
-  /* See More button */
+  @keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.5); opacity: 1; }
+  }
+
+  .floating-cards {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .card {
+    position: absolute;
+    font-size: 2rem;
+    filter: drop-shadow(0 0 20px rgba(3, 227, 252, 0.6));
+    animation: cardFloat 4s infinite ease-in-out;
+  }
+
+  @keyframes cardFloat {
+    0% { transform: scale(0) rotateY(0deg) translateY(0); opacity:0; }
+    25% { transform: scale(1) rotateY(90deg) translateY(-10px); opacity:1; }
+    50% { transform: scale(1) rotateY(180deg) translateY(0); opacity:1; }
+    75% { transform: scale(1) rotateY(270deg) translateY(-10px); opacity:1; }
+    100% { transform: scale(0) rotateY(360deg) translateY(0); opacity:0; }
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 40px;
+    border: 2px solid rgba(3,227,252,0.5);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    padding: 4px;
+  }
+
+  .scroll-indicator .dot {
+    width: 6px;
+    height: 6px;
+    background: #03e3fc;
+    border-radius: 50%;
+    animation: bounce 2s infinite;
+  }
+
+  /* Orbs floating animations */
+  @keyframes float1 { 0%,100%{transform: translate(0,0);}25%{transform:translate(50px,-30px);}50%{transform:translate(-30px,50px);}75%{transform:translate(20px,-20px);} }
+  @keyframes float2 { 0%,100%{transform: translate(0,0);}25%{transform:translate(-40px,20px);}50%{transform:translate(30px,-50px);}75%{transform:translate(-20px,30px);} }
+  @keyframes float3 { 0%,100%{transform: translate(0,0);}25%{transform:translate(20px,-20px);}50%{transform:translate(-30px,30px);}75%{transform:translate(10px,-10px);} }
+  @keyframes float4 { 0%,100%{transform: translate(0,0);}25%{transform:translate(-20px,40px);}50%{transform:translate(30px,-30px);}75%{transform:translate(-10px,20px);} }
+  @keyframes float5 { 0%,100%{transform: translate(0,0);}25%{transform:translate(10px,-10px);}50%{transform:translate(-20px,20px);}75%{transform:translate(5px,-5px);} }
+
+  a {
+    text-decoration: underline;
+    text-decoration-color: rgba(0,0,0,0);
+  }
+
   .center-btn {
     text-align: center;
-    margin: 40px 0;
+    margin-top: 20px;
   }
 
   .center-btn .button {
@@ -106,102 +342,438 @@
     color: #000;
   }
 
-  /* Timeline section */
-  .timeline {
-    flex-direction: column;
-    align-items: center;
+  .section-divider {
+    border: none;           /* remove default border */
+    height: 3px;            /* thickness of the line */
+    width: 90%;            /* length of the line */
+    background-color: #03e3fc; /* your brand color */
+    margin: 30px auto 50px; /* spacing: top 30px, bottom 50px, centered */
+    border-radius: 2px;     /* optional: slightly rounded edges */
   }
 
-  .timeline-card {
-    margin: 20px 0;
+  #contact {
+    text-align: center;
+    padding: 80px 20px;
+    margin-top: 0px
   }
+
+  #contact .section-divider {
+    margin-bottom: 10px; /* reduce gap below the divider */
+  }
+
+  .contact-cards {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 25px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+
+  .contact-cards .feature-card {
+    flex: 1 1 250px;
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .contact-cards .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+
+  /* Icon and text styling (reuse existing feature-card styles) */
+  .contact-cards .feature-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .contact-cards .feature-title {
+    font-weight: 600;
+    color: #03e3fc;
+    margin-bottom: 5px;
+  }
+
+  .contact-cards .feature-desc {
+    color: rgba(255,255,255,0.7);
+    font-size: 1rem;
+  }
+
+  .contact-card .icon {
+    font-size: 2rem;
+  }
+
+  .contact-title {
+    font-weight: 600;
+    margin-top: 10px;
+    color: #03e3fc;
+  }
+
+  .contact-link {
+    color: #03e3fc;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .contact-link:hover {
+    text-decoration: underline;
+  }
+  
 </style>
 </head>
 <body>
 
-<!-- Navbar (same as main page) -->
+<!-- Navbar -->
 <div class="navbar" id="navbar">
   <div class="navbar-container">
     <div class="navbar-logo">
-      <div class="beaker"><img src="Comm.png" style="width:30px;height:30px;"></div>
+      <div class="beaker"><img src='Comm.png' style="width:30px; height:30px;"></div>
       <span class="navbar-logo-text">The Collegium Of Minds</span>
     </div>
     <div class="navbar-links" id="navbar-links">
-      <a href="index.html">Home</a>
-      <a href="about.html" class="active">About</a>
-      <a href="projects.html">Projects</a>
-      <a href="members.html">Members</a>
-      <a href="timeline.html">Timeline</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#events">Events</a>
+      <a href="#contact">Contact</a>
     </div>
   </div>
 </div>
 
-<!-- Hero Section -->
-<section class="about-hero">
-  <div>
-    <h1>About the Collegium of Minds</h1>
-    <p>Exploring knowledge, fostering creativity, and inspiring the next generation of thinkers, innovators, and dreamers.</p>
-  </div>
-</section>
+  <section id="home">
+    <!-- Hero Section -->
+    <div class="hero" id="hero">
+      <div class="grid"></div>
 
-<!-- Features Section -->
-<section class="features">
-  <div class="feature-card">
-    <div class="feature-icon">⚛️</div>
-    <div class="feature-title">Scientific Innovation</div>
-    <div class="feature-desc">Experiments, research, and exploration of new ideas that redefine the boundaries of knowledge.</div>
-  </div>
-  <div class="feature-card">
-    <div class="feature-icon">🚀</div>
-    <div class="feature-title">Future Forward</div>
-    <div class="feature-desc">Projects and initiatives designed to anticipate challenges and create opportunities for tomorrow.</div>
-  </div>
-  <div class="feature-card">
-    <div class="feature-icon">🧠</div>
-    <div class="feature-title">Collaborative Spirit</div>
-    <div class="feature-desc">Building a community where thinkers, dreamers, and innovators share, discuss, and create together.</div>
-  </div>
-</section>
+      <!-- Orbs -->
+      <div class="orb" style="width:400px; height:400px; left:10%; top:20%; background: radial-gradient(circle, #03e3fc40 0%, transparent 70%); animation: float1 20s infinite alternate;"></div>
+      <div class="orb" style="width:300px; height:300px; left:80%; top:60%; background: radial-gradient(circle, #03fca540 0%, transparent 70%); animation: float2 25s infinite alternate;"></div>
+      <div class="orb" style="width:250px; height:250px; left:60%; top:10%; background: radial-gradient(circle, #03e3fc40 0%, transparent 70%); animation: float3 18s infinite alternate;"></div>
+      <div class="orb" style="width:350px; height:350px; left:20%; top:70%; background: radial-gradient(circle, #03fca540 0%, transparent 70%); animation: float4 22s infinite alternate;"></div>
+      <div class="orb" style="width:200px; height:200px; left:90%; top:30%; background: radial-gradient(circle, #03e3fc40 0%, transparent 70%); animation: float5 15s infinite alternate;"></div>
 
-<!-- Members Section -->
-<section class="members">
-  <div class="member-card">
-    <div class="member-icon">👨‍🚀</div>
-    <div class="member-name">Sarvesh Kore</div>
-    <div class="member-role">Founder & Research Lead</div>
-  </div>
-  <div class="member-card">
-    <div class="member-icon">🧑‍🔬</div>
-    <div class="member-name">Mohamed Shahaan</div>
-    <div class="member-role">Co-Founder & Innovation Head</div>
-  </div>
-  <div class="member-card">
-    <div class="member-icon">🧑‍💻</div>
-    <div class="member-name">Member 3</div>
-    <div class="member-role">Project Coordinator</div>
-  </div>
-</section>
+      <!-- Particles -->
+      <div class="particles">
+        <div class="particle" style="left: 50%; top: 50%; background: #03e3fc;"></div>
+        <div class="particle" style="left: 60%; top: 50%; background: #03fca5;"></div>
+        <div class="particle" style="left: 40%; top: 50%; background: #03e3fc;"></div>
+        <div class="particle" style="left: 50%; top: 60%; background: #03fca5;"></div>
+      </div>
 
-<!-- Timeline Section -->
-<section class="timeline">
-  <div class="timeline-card">
-    <div class="timeline-year">Jan 2025</div>
-    <div class="timeline-desc">Collegium of Minds founded. First members joined.</div>
-  </div>
-  <div class="timeline-card">
-    <div class="timeline-year">Mar 2025</div>
-    <div class="timeline-desc">Hosted first ThinkTank session and small workshop.</div>
-  </div>
-  <div class="timeline-card">
-    <div class="timeline-year">Jun 2025</div>
-    <div class="timeline-desc">Brain Blitz interschool quiz festival organized.</div>
-  </div>
-</section>
+      <div class="title" id="title">
+        <h1>The Collegium</h1>
+        <br>
+        <h2>Of Minds</h2>
+        <p>Where thinkers, dreamers, and innovators unite to explore ideas that shape tomorrow.</p>
+        <button class="button" onclick="location.href = '#about'">Explore Our Universe</button>
+        <br>
+      </div>
 
-<!-- See More Button -->
-<div class="center-btn">
-  <button class="button" onclick="location.href='index.html'">Back to Home</button>
-</div>
+      <!-- Floating Cards -->
+      <div class="floating-cards">
+        <div class="card" style="left:15%; top:25%; animation-delay:0s;">🔬</div>
+        <div class="card" style="left:85%; top:35%; animation-delay:0.5s;">⚛️</div>
+        <div class="card" style="left:10%; top:75%; animation-delay:1s;">🧬</div>
+        <div class="card" style="left:90%; top:70%; animation-delay:1.5s;">🚀</div>
+      </div>
+
+      <div class="scroll-indicator">
+        <div class="dot"></div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="about">
+    <!-- Background blobs -->
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+
+    <!-- Header -->
+    <div class="section-header">
+      <div class="tag">Who We Are</div>
+      <br>
+      <h2>About Us</h2>
+      <p class="description">
+      The Collegium of Minds (CoM) is a collective for thinkers, dreamers, and innovators who seek to explore the frontiers of knowledge.
+We bring together curious minds to discuss science, philosophy, art, and technology — ideas that shape the world and the future beyond it.
+At CoM, curiosity drives everything. We question assumptions, share discoveries, and challenge limits through open dialogue and creative collaboration.
+Our aim is to inspire a generation that learns not just to think, but to rethink — forging new ideas that redefine what’s possible.
+      </p>
+    </div>
+
+    <!-- Feature Grid -->
+    <div class="features">
+      <div class="feature-card">
+        <div class="feature-icon">⚛️</div>
+        <div class="feature-title">Scientific Innovation</div>
+        <div class="feature-desc">Pushing the boundaries of knowledge through experiments, research, and exploration of new ideas.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔬</div>
+        <div class="feature-title">Research Excellence</div>
+        <div class="feature-desc">Encouraging rigorous, curiosity-driven study that combines science, philosophy, and creative thinking.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🚀</div>
+        <div class="feature-title">Future Forward</div>
+        <div class="feature-desc">Inspiring ideas and projects that anticipate the challenges and opportunities of tomorrow.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <div class="feature-title">Collaborative Spirit</div>
+        <div class="feature-desc">Fostering a community where thinkers, dreamers, and innovators share, discuss, and create together.</div>
+      </div>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-number">20+</div>
+        <div class="stat-label">Members</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">6</div>
+        <div class="stat-label">Projects</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">0</div>
+        <div class="stat-label">Events</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">1.5</div>
+        <div class="stat-label">Months</div>
+      </div>
+    </div>
+
+    <br>
+    <br>
+    
+    <div class="center-btn">
+      <button class="button" onclick="location.href='about.html'">See More</button>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="section-header">
+      <div class="tag">What We Create</div>
+      <br>
+      <h2>Our Projects</h2>
+      <p class="description">
+    At CoM, ideas don’t stay as thoughts — they evolve into projects that make an impact.  
+    From scientific experiments and research initiatives to creative design, AI development, and interschool collaborations,  
+    each project reflects our drive to explore the unknown and turn imagination into innovation.  
+    Our members work together to solve real-world problems, experiment fearlessly, and contribute meaningfully to science, society, and the future.
+      </p>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="features">
+      <div class="feature-card">
+        <div class="feature-icon">⚛️</div>
+        <div class="feature-title">Physics For People In A Hurry</div>
+        <div class="feature-desc">
+      A book written by Sarvesh Kore and Mohamed Shahaan, in collaboration with CoM
+        </div>
+      </div>
+
+      <a href="https://dropshield-ai.streamlit.app" target="_blank">
+        <div class="feature-card">
+          <div class="feature-icon">🤖</div>
+          <div class="feature-title">DropShield AI</div>
+          <div class="feature-desc">
+        A machine learning initiative that predicts and prevents school dropouts — supporting quality education and equal opportunity.
+          </div>
+        </div>
+      </a>
+
+      <a href="https://nova-net-yfpttvfjfwkeuzqwjfxckt.streamlit.app" target="_blank">
+        <div class="feature-card">
+          <div class="feature-icon">💫</div>
+          <div class="feature-title">Nova Net</div>
+          <div class="feature-desc">
+        An interactive space platform built to simplify cosmic exploration and make astronomy accessible to everyone.
+          </div>
+        </div>
+      </a>
+
+      <a href="https://medium.com/@ssworld7105/is-gravity-an-illusion-1872b0a8b0ec" target="_blank">
+        <div class="feature-card">
+          <div class="feature-icon">🌀</div>
+          <div class="feature-title">Is Gravity An Illusion?</div>
+          <div class="feature-desc">
+        An explanatory article that explores the true nature of gravity by using Einstein’s General Theory of Relativity
+          </div>
+        </div>
+      </a>
+
+      <a href="https://medium.com/@ssworld7105/is-gravity-an-illusion-1872b0a8b0ec" target="_blank">
+        <div class="feature-card">
+          <div class="feature-icon">🚀</div>
+          <div class="feature-title">Travelling Faster Than Light?</div>
+          <div class="feature-desc">
+        An exploration of theoretical faster-than-light travel, examining warp drives, quantum vacuums, and the ethical and scientific frontiers of interstellar motion.
+        (Link to be added)
+          </div>
+        </div>
+      </a>
+
+      <a href="https://docs.google.com/document/d/1AnOXkB-xFXTOXVZaUCti2wFx4e3EfwDyKc8sUset--Q/edit?tab=t.0">
+        <div class="feature-card">
+          <div class="feature-icon">📘</div>
+          <div class="feature-title">APPLIED Curriculum</div>
+          <div class="feature-desc"> 
+        A reimagined educational framework merging theory with real-world problem-solving, designed to nurture innovation, inquiry, and creative thinking.
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <br>
+    <br>
+    
+    <div class="center-btn">
+      <button class="button" onclick="location.href='project.html'">See More</button>
+    </div>
+  </section>
+  
+  <br>
+  <br>
+  <br>
+  
+  <hr class="section-divider">
+  
+  <!-- Events Section -->
+  <section id="events">
+    <div class="section-header">
+      <div class="tag">What We Host</div>
+      <br>
+      <h2>Events & Initiative</h2>
+      <p class="description">
+      At the Collegium of Minds, every event is an experiment in curiosity — from debates and quizzes to collaborative research and hands-on workshops.
+      These gatherings are where ideas spark, intellects collide, and innovation begins.
+      Participants engage in problem-solving challenges, present their projects, and collaborate across disciplines, fostering an environment where learning is active, creative, and inspiring.
+      Every session is designed to spark curiosity, encourage critical thinking, and nurture the next generation of innovators, thinkers, and visionaries.
+      </p>
+    </div>
+    
+    <!-- Events Grid -->
+    <div class="features">
+      <div class="feature-card">
+        <div class="feature-icon">💡</div>
+        <div class="feature-title">Debate Symposium</div>
+        <div class="feature-desc">
+          A monthly event where members challenge perspectives, explore philosophies, and debate scientific and ethical questions.
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🔬</div>
+        <div class="feature-title">Innovation Fair</div>
+        <div class="feature-desc">
+          Our annual showcase of student-led experiments, prototypes, and research projects — where ideas meet reality.
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🧠</div>
+        <div class="feature-title">ThinkTank Sessions</div>
+        <div class="feature-desc">
+          Weekly collaborative discussions that bring together members from all disciplines to brainstorm projects and research directions.
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🎓</div>
+        <div class="feature-title">Mentorship Workshops</div>
+        <div class="feature-desc">
+          Interactive sessions led by senior members and educators, focusing on academic excellence, creativity, and leadership in science.
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <br>
+    
+    <div class="center-btn">
+      <button class="button" onclick="location.href='event.html'">See More</button>
+    </div>
+  </section>
+
+  <br>
+  <br>
+  <br>
+
+  <hr class="section-divider">
+
+  <!-- Contacts section -->
+  <section id="contact">
+    <div class="section-header">
+      <div class="tag">Connect With Us</div>
+      <br>
+      <h2>Contact</h2>
+      <p class="description">
+        Have questions, ideas, or want to join the Collegium of Minds?  
+        Reach out — we’re always open to collaboration and curiosity.
+      </p>
+    </div>
+
+    <div class="contact-cards">
+      <a href="mailto:collegiumofminds@gmail.com" class="feature-card">
+        <div class="feature-icon">📧</div>
+        <div class="feature-title">Email</div>
+        <div class="feature-desc">collegiumofminds@gmail.com</div>
+      </a>
+
+      <a href="https://chat.whatsapp.com/YOUR_COMMUNITY_LINK" target="_blank" class="feature-card">
+        <div class="feature-icon">💬</div>
+        <div class="feature-title">WhatsApp Community</div>
+        <div class="feature-desc">Join our WhatsApp group</div>
+      </a>
+
+      <a href="https://instagram.com/YOUR_PAGE" target="_blank" class="feature-card">
+        <div class="feature-icon">🌐</div>
+        <div class="feature-title">Instagram</div>
+        <div class="feature-desc">@collegiumofminds</div>
+      </a>
+    </div>
+  </section>
+
+  
+  
+<script>
+  // Navbar animation on load
+  window.addEventListener('load', () => {
+    const navbar = document.getElementById('navbar');
+    navbar.style.top = '0';
+    navbar.style.opacity = '1';
+
+    // Animate navbar links sequentially
+    const links = document.querySelectorAll('.navbar-links a');
+    links.forEach((link, i) => {
+      link.style.opacity = 0;
+      link.style.transform = 'translateY(-20px)';
+      setTimeout(() => {
+        link.style.transition = 'all 0.5s ease-out';
+        link.style.opacity = 1;
+        link.style.transform = 'translateY(0)';
+      }, i * 200);
+    });
+  });
+
+  // Scroll-based title movement and fade
+  const title = document.getElementById('title');
+  window.addEventListener('scroll', () => {
+    const scroll = window.scrollY;
+    title.style.transform = `translateY(${scroll * 0.3}px)`;
+    title.style.opacity = Math.max(1 - scroll / 300, 0);
+  });
+
+  // When the page loads with a hash, remove it without reloading
+  if (window.location.hash) {
+    history.replaceState(null, null, ' ');
+  }
+</script>
 
 </body>
 </html>
