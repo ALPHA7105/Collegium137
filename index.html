@@ -23,16 +23,18 @@
   }
 
   /* Navbar */
-  .navbar {
-    position: fixed;       /* stays on top */
-    top: 0;                /* aligned to top */
-    left: 0;
-    width: 100%;           /* full width */
-    background: rgba(0, 0, 0, 0.7); /* transparent dark background */
-    backdrop-filter: blur(10px);    /* adds a glassy effect */
-    z-index: 1000;         /* stays above all other elements */
-    padding: 10px 0;
-  }
+  .navbar { 
+    position: fixed; 
+    top: -100px; 
+    left: 0; 
+    right: 0; 
+    z-index: 50; 
+    background: rgba(0,0,0,0.8); 
+    backdrop-filter: blur(10px); 
+    border-bottom: 1px solid rgba(3,227,252,0.2); 
+    transition: top 0.8s ease-out, 
+    opacity 0.8s ease-out; 
+    opacity: 0; }
 
   .navbar-container {
     max-width: 1200px;
