@@ -349,7 +349,52 @@
     background-color: #03e3fc; /* your brand color */
     margin: 30px auto 50px; /* spacing: top 30px, bottom 50px, centered */
     border-radius: 2px;     /* optional: slightly rounded edges */
-}
+  }
+
+  #contact {
+    text-align: center;
+    padding: 80px 20px;
+  }
+
+  .contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 40px;
+  }
+
+  .contact-card {
+    background: rgba(255,255,255,0.05);
+    padding: 25px;
+    border-radius: 16px;
+    width: 260px;
+    transition: 0.3s;
+  }
+
+  .contact-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255,255,255,0.08);
+  }
+
+  .contact-card .icon {
+    font-size: 2rem;
+  }
+
+  .contact-title {
+    font-weight: 600;
+    margin-top: 10px;
+    color: #03e3fc;
+  }
+
+  .contact-link {
+    color: #03e3fc;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .contact-link:hover {
+    text-decoration: underline;
+  }
   
 </style>
 </head>
@@ -561,11 +606,18 @@ Our aim is to inspire a generation that learns not just to think, but to rethink
         </div>
       </a>
     </div>
+
+    <br>
+    <br>
+    
+    <div class="center-btn">
+      <button class="button" onclick="location.href='project.html'">See More</button>
+    </div>
   </section>
 
   <hr class="section-divider">
   
-    <!-- Events Section -->
+  <!-- Events Section -->
   <section id="events">
     <div class="section-header">
       <div class="tag">What We Host</div>
@@ -613,11 +665,52 @@ Our aim is to inspire a generation that learns not just to think, but to rethink
         </div>
       </div>
     </div>
+
+    <br>
+    <br>
+    
+    <div class="center-btn">
+      <button class="button" onclick="location.href='event.html'">See More</button>
+    </div>
   </section>
 
 
+<hr class="section-divider">
 
- 
+<!-- Conatacts section -->
+<section id="contact">
+  <div class="section-header">
+    <div class="tag">Connect With Us</div>
+    <br>
+    <h2>Contact</h2>
+    <p class="description">
+      Have questions, ideas, or want to join the Collegium of Minds?  
+      Reach out — we’re always open to collaboration and curiosity.
+    </p>
+  </div>
+
+  <div class="contact-container">
+    <div class="contact-card">
+      <div class="icon">📧</div>
+      <div class="contact-title">Email</div>
+      <p>collegiumofminds@gmail.com</p>
+    </div>
+
+    <div class="contact-card">
+      <div class="icon">💬</div>
+      <div class="contact-title">WhatsApp Community</div>
+      <a href="https://chat.whatsapp.com/YOUR_COMMUNITY_LINK" target="_blank" class="contact-link">Join Now →</a>
+    </div>
+
+    <div class="contact-card">
+      <div class="icon">🌐</div>
+      <div class="contact-title">Instagram</div>
+      <a href="https://instagram.com/YOUR_PAGE" target="_blank" class="contact-link">@collegiumofminds</a>
+    </div>
+  </div>
+</section>
+
+  
   
 <script>
   // Navbar animation on load
