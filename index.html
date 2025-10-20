@@ -611,6 +611,11 @@ Our aim is to inspire a generation that learns not just to think, but to rethink
     title.style.transform = `translateY(${scroll * 0.3}px)`;
     title.style.opacity = Math.max(1 - scroll / 300, 0);
   });
+
+  // When the page loads with a hash, remove it without reloading
+  if (window.location.hash) {
+    history.replaceState(null, null, ' ');
+  }
 </script>
 
 </body>
