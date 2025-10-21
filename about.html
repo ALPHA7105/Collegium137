@@ -403,12 +403,61 @@
   }
 
   .timeline {
-    flex-direction: column;
-    align-items: center;
+    position: relative;
+    max-width: 900px;
+    margin: 40px auto;
   }
 
-  .timeline-card {
-    margin: 20px 0;
+  .timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: #00bcd4;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+  }
+
+  .timeline-event {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+  }
+
+  .timeline-event::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: -10px;
+    background-color: white;
+    border: 4px solid #00bcd4;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  .left {
+    left: 0;
+  }
+
+  .right {
+    left: 50%;
+  }
+
+  .content {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #00bcd4;
+  }
+
+  @media screen and (max-width: 600px) {
+    .timeline::after { left: 31px; }
+    .timeline-event { width: 100%; padding-left: 70px; padding-right: 25px; }
+    .timeline-event::before { left: 15px; }
   }
   
 </style>
@@ -519,8 +568,27 @@
     </div>
   </section>
 
-  <br>
-  <br>
+  <hr class="section-divider">
+
+  <section id= "timeline" class="timeline">
+    <div class="section-header">
+      Our Timeline
+    </div>
+      <div class="tag">Our Growth</div>
+      <br>
+    <div class="timeline-event left">
+      <div class="content">
+        <h3>🧠 Collegium Founded</h3>
+        <p>September 2025 — The Collegium of Minds was officially launched.</p>
+      </div>
+    </div>
+    <div class="timeline-event right">
+      <div class="content">
+        <h3>🚀 First Project: Physics For People In A Hurry</h3>
+        <p>October 2025 — Our first project launched online!</p>
+      </div>
+    </div>
+  </section>
 
   
   
