@@ -361,7 +361,7 @@
     margin: auto;
   }
 
-  .feature-card, .member-card, .timeline-card {
+  .feature-card, .timeline-card {
     flex: 1 1 250px;
     max-width: 300px;
     text-align: center;
@@ -378,6 +378,12 @@
     max-width: 22%; /* keeps width consistent */
     min-width: 220px; /* prevents shrinking too much on smaller screens */
     text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: rgba(3,227,252,0.05);
+    border: 1px solid rgba(3,227,252,0.2);
+    border-radius: 12px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
   }
   
   .feature-card:hover, .member-card:hover, .timeline-card:hover {
