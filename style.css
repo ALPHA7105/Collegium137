@@ -1,294 +1,148 @@
-/* 1. IMPORTS & SYSTEM */
+/* 1. IMPORTS */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Orbitron:wght@900&display=swap');
 
-:root {
-  --primary: #03e3fc;
-  --secondary: #03fca5;
-  --bg-dark: #000000;
-  --glass: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(3, 227, 252, 0.2);
-  --text-dim: rgba(255, 255, 255, 0.6);
+/* 2. CORE RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-html { scroll-behavior: smooth; }
 
 body {
-  background-color: var(--bg-dark);
-  color: white;
+  background-color: #000 !important;
+  color: #fff !important;
   font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
-/* 2. NAVBAR SECTION */
+/* 3. THE GLASS EFFECT (The missing piece) */
+.feature-card, .stat-card {
+  /* This creates the semi-transparent look */
+  background: rgba(255, 255, 255, 0.05) !important;
+  /* This creates the "frosted" blur effect */
+  backdrop-filter: blur(12px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
+  
+  border: 1px solid rgba(3, 227, 252, 0.3) !important;
+  border-radius: 20px !important;
+  padding: 30px !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Alignment inside the card */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.feature-card:hover {
+  background: rgba(3, 227, 252, 0.1) !important;
+  border-color: #03e3fc !important;
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(3, 227, 252, 0.2);
+}
+
+/* 4. TILE ALIGNMENT (The Grid fix) */
+.features {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 25px !important;
+  max-width: 1200px;
+  margin: 50px auto !important;
+  padding: 0 20px;
+}
+
+/* Ensure cards take up proper space */
+.features .feature-card {
+  flex: 1 1 300px; /* Grow, shrink, but start at 300px */
+  max-width: 380px;
+  min-height: 250px;
+}
+
+/* 5. HERO SECTION ALIGNMENT */
+.hero {
+  min-height: 100vh;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.title h1 {
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: clamp(2.5rem, 8vw, 6rem) !important;
+  margin-bottom: 10px;
+  background: linear-gradient(to bottom, #fff, #03e3fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.title h2 {
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: clamp(2rem, 6vw, 4.5rem) !important;
+  color: #03fca5;
+  margin-top: -10px;
+}
+
+/* 6. STATS BOXES */
+.stats {
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.stat-card {
+  flex: 1 1 200px;
+  max-width: 250px;
+}
+
+/* 7. NAVBAR FIX */
 .navbar {
   position: fixed;
-  top: -100px; /* Controlled by JS */
-  left: 0;
+  top: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--glass-border);
-  transition: all 0.8s ease;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(3, 227, 252, 0.2);
 }
 
 .navbar-container {
   max-width: 1200px;
-  height: 80px;
   margin: 0 auto;
+  height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 2rem;
-}
-
-.navbar-logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-weight: 800;
-  font-family: 'Orbitron', sans-serif;
-  color: var(--primary);
+  padding: 0 20px;
 }
 
 .navbar-links {
   display: flex;
-  gap: 2rem;
+  gap: 25px;
 }
 
 .navbar-links a {
-  color: white;
   text-decoration: none;
-  font-size: 0.9rem;
+  color: rgba(255,255,255,0.8);
   font-weight: 500;
-  transition: color 0.3s;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  transition: 0.3s;
 }
 
-.navbar-links a:hover { color: var(--primary); }
+.navbar-links a:hover { color: #03e3fc; }
 
-/* 3. HERO SECTION (The Big Fix) */
-.hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  overflow: hidden;
-  padding: 100px 20px;
-}
-
-.grid {
-  position: absolute;
-  inset: 0;
-  background-image: linear-gradient(rgba(3, 227, 252, 0.05) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(3, 227, 252, 0.05) 1px, transparent 1px);
-  background-size: 50px 50px;
-  mask-image: radial-gradient(circle, black, transparent 80%);
-  z-index: -1;
-}
-
-.title {
-  position: relative;
-  z-index: 10;
-  text-align: center;
-  max-width: 900px;
-}
-
-.title h1, .title h2 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: clamp(2.5rem, 10vw, 5.5rem);
-  line-height: 1.1;
-  text-transform: uppercase;
-  background: linear-gradient(to bottom, #fff 30%, var(--primary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 15px rgba(3, 227, 252, 0.3));
-}
-
-.title p {
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  color: var(--text-dim);
-  margin: 2rem auto;
-  max-width: 600px;
-}
-
-/* 4. BUTTONS */
-.button {
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
-  color: black;
-  border: none;
-  padding: 1rem 2.5rem;
-  font-size: 1rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 20px rgba(3, 227, 252, 0.4);
-}
-
-.button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 30px rgba(3, 227, 252, 0.6);
-}
-
-/* 5. SECTIONS & CONTAINERS */
-section {
-  position: relative;
-  padding: 100px 1.5rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 4rem;
-}
-
-.section-header h2 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 3rem;
-  margin: 1rem 0;
-  background: linear-gradient(90deg, var(--primary), #fff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.tag {
-  display: inline-block;
-  padding: 6px 16px;
-  background: rgba(3, 227, 252, 0.1);
-  border: 1px solid var(--primary);
-  color: var(--primary);
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 600;
-}
-
-.description {
-  max-width: 750px;
-  margin: 0 auto;
-  color: var(--text-dim);
-}
-
-/* 6. FEATURE & PROJECT GRID */
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-.feature-card {
-  background: var(--glass);
-  border: 1px solid var(--glass-border);
-  padding: 2.5rem;
-  border-radius: 1.2rem;
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-  text-decoration: none; /* For link cards */
-  color: inherit;
-}
-
-.feature-card:hover {
-  border-color: var(--primary);
-  background: rgba(3, 227, 252, 0.05);
-  transform: translateY(-10px);
-}
-
-.feature-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.feature-title {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1.25rem;
-  margin-bottom: 0.8rem;
-  color: #fff;
-}
-
-.feature-desc { color: var(--text-dim); font-size: 0.95rem; }
-
-/* 7. STATS GRID */
-.stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  margin-top: 60px;
-}
-
-.stat-card {
-  background: var(--glass);
-  border: 1px solid var(--glass-border);
-  padding: 2rem;
-  border-radius: 1rem;
-  text-align: center;
-}
-
-.stat-number {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 2.5rem;
-  color: var(--primary);
-}
-
-.stat-label { color: var(--text-dim); font-size: 0.9rem; }
-
-/* 8. CONTACT & DIVIDERS */
-.contact-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-.section-divider {
-  border: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
-  margin: 0 auto;
-  max-width: 1200px;
-}
-
-/* 9. DECORATIONS & ORBS */
+/* 8. BACKGROUND ORBS */
 .orb {
   position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
   z-index: -1;
-  pointer-events: none;
-}
-
-.scroll-indicator {
-  position: absolute;
-  bottom: 30px;
-  width: 25px;
-  height: 45px;
-  border: 2px solid var(--text-dim);
-  border-radius: 20px;
-}
-
-.scroll-indicator .dot {
-  width: 4px;
-  height: 8px;
-  background: var(--primary);
-  margin: 5px auto;
-  border-radius: 2px;
-  animation: scrollAnim 2s infinite;
-}
-
-@keyframes scrollAnim {
-  0% { transform: translateY(0); opacity: 1; }
-  100% { transform: translateY(20px); opacity: 0; }
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .navbar-links { display: none; } /* Mobile navbar fix */
-  .title h1, .title h2 { font-size: 3rem; }
-  .section-header h2 { font-size: 2.2rem; }
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.5;
 }
