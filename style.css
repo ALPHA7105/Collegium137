@@ -122,6 +122,65 @@ body, html {
   background: rgba(3, 227, 252, 0.08) !important;
 }
 
+/* --- SECTION HEADER STYLING --- */
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 0 20px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 8px 20px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #03e3fc;
+  background: rgba(3, 227, 252, 0.1);
+  border: 1px solid rgba(3, 227, 252, 0.3);
+  border-radius: 50px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 15px rgba(3, 227, 252, 0.1);
+}
+
+.section-header h2 {
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: clamp(2rem, 5vw, 3.5rem) !important;
+  background: linear-gradient(to right, #ffffff, #03e3fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.description {
+  font-size: 1.1rem !important;
+  line-height: 1.8 !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  max-width: 800px;
+  margin: 0 auto !important;
+  text-align: center;
+}
+
+.center-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+.section-divider {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(3, 227, 252, 0.5), transparent);
+  margin: 80px auto;
+  width: 90%;
+}
+
 /* 5. ANIMATIONS & DECORATIONS */
 .orb {
   position: absolute;
