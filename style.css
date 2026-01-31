@@ -76,11 +76,53 @@ body, html {
 .hero {
     position: relative;
     min-height: 100vh;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    padding-top: 80px;
+    /* Ensure flex doesn't squash absolute children */
+}
+
+/* 2. FIX FLOATING EMOJIS (The "centered" fix) */
+.floating-cards {
+    position: absolute;
+    inset: 0;           /* This makes the container cover the whole screen */
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.floating-cards .card {
+    position: absolute !important; /* Forces them to use the left/top from HTML */
+    display: block;
+    font-size: 2.5rem;
+    filter: drop-shadow(0 0 20px rgba(3, 227, 252, 0.6));
+    animation: cardFloat 4s infinite ease-in-out;
+}
+
+/* 3. FIX ORBS (The "centered" fix) */
+.orb {
+    position: absolute !important;
+    border-radius: 50%;
+    filter: blur(60px);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* 4. KEEP TITLES CENTERED */
+.title {
+    position: relative;
+    text-align: center;
+    z-index: 10;
+    pointer-events: auto;
+}
+
+/* 5. ANIMATIONS (Ensure these exist) */
+@keyframes cardFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+    50% { transform: translateY(-30px) rotate(10deg); opacity: 1; }
 }
 
 .grid {
