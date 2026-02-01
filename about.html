@@ -335,6 +335,15 @@ if (container) {
         container.appendChild(el);
     }
 }
+
+@keyframes deepFall {
+    0% { transform: translateY(-100px) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.4; }
+    90% { opacity: 0.4; }
+    /* Increase 1200px to something much larger, like 4000px, 
+       to cover the whole About page */
+    100% { transform: translateY(4000px) rotate(360deg); opacity: 0; }
+}
   
 </script>
 
