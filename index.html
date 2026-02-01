@@ -28,6 +28,7 @@
 <main>
   <section id="home">
     <div class="hero" id="hero">
+      <canvas id="starfield" style="position: absolute; inset: 0; z-index: -1;"></canvas>
       <div class="grid"></div>
       <div class="orb" style="width:400px; height:400px; left:10%; top:20%; background: radial-gradient(circle, #03e3fc40 0%, transparent 70%); animation: float1 20s infinite alternate;"></div>
       <div class="orb" style="width:300px; height:300px; left:80%; top:60%; background: radial-gradient(circle, #03fca540 0%, transparent 70%); animation: float2 25s infinite alternate;"></div>
@@ -119,6 +120,65 @@
     document.querySelector('.grid').style.transform = `translateY(${scroll * 0.1}px)`;
   });
 
+
+// ---------- Pure Hero Starfield ----------
+const starCanvas = document.getElementById('starfield');
+const sctx = starCanvas.getContext('2d');
+let stars = [];
+const numStars = 400; // Dense enough to look good
+
+function resizeStarCanvas() {
+    starCanvas.width = window.innerWidth;
+    starCanvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resizeStarCanvas);
+resizeStarCanvas();
+
+// Initialize stars
+for (let i = 0; i < numStars; i++) {
+    stars.push({
+        x: Math.random() * starCanvas.width,
+        y: Math.random() * starCanvas.height,
+        size: Math.random() * 1.5 + 0.5,
+        speed: Math.random() * 0.8 + 0.2, // Parallax speed
+        alpha: Math.random(),
+        twinkling: Math.random() * 0.02
+    });
+}
+
+function drawStars() {
+    // We use a semi-transparent clear to avoid streaks
+    sctx.fillStyle = '#000'; // Match your site's black
+    sctx.fillRect(0, 0, starCanvas.width, starCanvas.height);
+    
+    stars.forEach(star => {
+        // Subtle twinkling effect
+        star.alpha += star.twinkling;
+        if (star.alpha <= 0.2 || star.alpha >= 1) star.twinkling *= -1;
+
+        sctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(star.alpha)})`;
+        sctx.beginPath();
+        sctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+        sctx.fill();
+
+        // Move downwards
+        star.y += star.speed;
+
+        // Loop back to top
+        if (star.y > starCanvas.height) {
+            star.y = -5;
+            star.x = Math.random() * starCanvas.width;
+        }
+    });
+}
+
+// Separate Animation Loop for Stars
+function animateStars() {
+    drawStars();
+    requestAnimationFrame(animateStars);
+}
+animateStars();
+  
 
 const container = document.getElementById('particle-container');
 const symbols = ['ℏ', 'Ψ', 'Σ', 'Δ', 'Ω', 'π', '∞', 'λ', 'θ', 'μ', 'Fe', 'Au', 'Li', 'U', 'Φ'];
