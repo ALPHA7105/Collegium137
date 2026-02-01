@@ -1474,4 +1474,43 @@ body {
        to cover the whole About page */
     100% { transform: translateY(4000px) rotate(360deg); opacity: 0; }
 }
+
+
+I feel you—the struggle with "Desktop vs. Mobile" is real. What looks like a sleek dashboard on a monitor usually turns into a squashed mess on a phone because Flexbox tries to keep everything in one row unless we tell it specifically to "stack."
+
+The timeline is likely overflowing, and the 3-column section is probably too thin to read. Here is the Mobile-First Fix.
+
+I’ve updated the code with Media Queries (CSS instructions that only activate on small screens) to turn the horizontal rows back into readable vertical stacks when the screen is narrow.
+
+1. The CSS Fix (Add to your <style> or style.css)
+This tells the browser: "If the screen is smaller than 768px, change how these sections behave."
+
+CSS
+
+@media (max-width: 768px) {
+  /* Stack the 3-column philosophy cards */
+  .tri-columns > div {
+    flex-direction: column !important;
+  }
   
+  /* Make the timeline vertical again on mobile for readability */
+  .timeline-flex-container {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding-left: 20px;
+  }
+
+  .timeline-line-horizontal {
+    display: none; /* Hide the horizontal line */
+  }
+
+  .timeline-item {
+    text-align: left !important;
+    margin-bottom: 40px;
+  }
+  
+  /* Shrink the massive About Us text so it doesn't break the screen */
+  h1 {
+    font-size: 4rem !important;
+  }
+}
