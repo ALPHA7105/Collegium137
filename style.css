@@ -342,3 +342,54 @@ h1, h2 {
   background: #03e3fc;
   color: black;
 }
+
+
+.teaser-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 100px 50px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.teaser-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(3, 227, 252, 0.2);
+    padding: 40px;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+}
+
+.teaser-card:hover {
+    background: rgba(3, 227, 252, 0.05);
+    border-color: #03e3fc;
+    transform: scale(1.02);
+}
+
+.teaser-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    margin: 15px 0;
+    font-size: 1.5rem;
+}
+
+.link-arrow {
+    display: inline-block;
+    margin-top: 20px;
+    color: #03e3fc;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.button-outline {
+    padding: 15px 35px;
+    background: transparent;
+    border: 2px solid #03e3fc;
+    color: #03e3fc;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
+}
