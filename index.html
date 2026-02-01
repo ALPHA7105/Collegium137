@@ -51,11 +51,12 @@
     </div>
   </section>
 
-  <div class="intellectual-hub">
-      <div class="bg-blob" style="width: 1000px; height: 1000px; top: 0%; left: -10%; background: #03e3fc;"></div>
-      <div class="bg-blob" style="width: 800px; height: 800px; top: 50%; right: -10%; background: #03fca5;"></div>
+  <div class="intellectual-hub" style="position: relative; background: #000; overflow: hidden; width: 100%;">
+    
+    <div class="bg-blob" style="width: 600px; height: 600px; top: -100px; left: -100px; background: rgba(3, 227, 252, 0.4);"></div>
+    <div class="bg-blob" style="width: 500px; height: 500px; top: 40%; right: -100px; background: rgba(3, 252, 165, 0.3);"></div>
 
-      <div class="particle-layer" id="particle-container"></div>
+    <div class="particle-layer" id="particle-container"></div>
 
       <div class="hub-content" style="position: relative; z-index: 10;">
         <section class="brief-about">
@@ -116,38 +117,36 @@
     document.querySelector('.grid').style.transform = `translateY(${scroll * 0.1}px)`;
   });
 
-  const container = document.getElementById('particle-container');
-const symbols = ['ℏ', 'Ψ', 'Σ', 'Δ', 'Ω', 'π', '∞', 'λ', 'θ', 'μ', 'Fe', 'Au', 'Li', 'U', 'He', 'Ne', 'Ag', 'Ti', 'C', 'O', 'Φ'];
 
-function createParticles() {
-    // Let's drop 120 elements for high density
-    for (let i = 0; i < 120; i++) {
-        const isSymbol = Math.random() > 0.4; // 60% symbols, 40% dots
-        const element = document.createElement('div');
+const container = document.getElementById('particle-container');
+const symbols = ['ℏ', 'Ψ', 'Σ', 'Δ', 'Ω', 'π', '∞', 'λ', 'θ', 'μ', 'Fe', 'Au', 'Li', 'U', 'Φ'];
+
+if (container) {
+    for (let i = 0; i < 100; i++) {
+        const isSymbol = Math.random() > 0.5;
+        const el = document.createElement('div');
         
+        el.style.position = 'absolute';
+        el.style.left = Math.random() * 100 + '%';
+        el.style.animation = `deepFall ${Math.random() * 10 + 10}s linear infinite`;
+        el.style.animationDelay = `-${Math.random() * 20}s`;
+        el.style.opacity = Math.random() * 0.4 + 0.1;
+        el.style.color = 'rgba(3, 227, 252, 0.4)';
+
         if (isSymbol) {
-            element.className = 'symbol';
-            element.innerText = symbols[Math.floor(Math.random() * symbols.length)];
-            element.style.fontSize = (Math.random() * 2 + 0.8) + 'rem';
+            el.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+            el.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+            el.style.fontFamily = 'Orbitron, sans-serif';
         } else {
-            element.className = 'p';
-            const size = Math.random() * 5 + 1 + 'px';
-            element.style.width = size;
-            element.style.height = size;
-            if(Math.random() > 0.8) element.style.boxShadow = '0 0 10px #03e3fc';
+            const size = Math.random() * 4 + 1 + 'px';
+            el.style.width = size;
+            el.style.height = size;
+            el.style.backgroundColor = '#03e3fc';
+            el.style.borderRadius = '50%';
         }
-
-        // Randomize placement and animation
-        element.style.left = Math.random() * 100 + '%';
-        element.style.animationDuration = (Math.random() * 15 + 10) + 's'; // Between 10s and 25s
-        element.style.animationDelay = (Math.random() * -30) + 's'; // Starts mid-fall
-        element.style.opacity = Math.random() * 0.4 + 0.1;
-
-        container.appendChild(element);
+        container.appendChild(el);
     }
 }
-
-createParticles();
   
 </script>
 
