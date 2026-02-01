@@ -515,36 +515,57 @@ body {
     box-shadow: 0 0 15px rgba(3, 227, 252, 0.2);
 }
 
+/* ------------------ Intellectual BG ----------------- */
+/* Container Fix */
+.intellectual-hub {
+    position: relative;
+    background: #000;
+    overflow: hidden;
+    padding-bottom: 100px;
+}
 
-.intellectual-bg {
+/* 1. Deep Background Blobs (Soft Blue Glows) */
+.bg-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: 0;
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+/* 2. Particle Rain (Moving Upwards) */
+.particle-layer {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0; /* Changed from -1 to 0 */
+    z-index: 1;
     pointer-events: none;
 }
 
+.p {
+    position: absolute;
+    background: #03e3fc;
+    border-radius: 50%;
+    animation: floatUp linear infinite;
+}
+
+/* 3. Symbols Styling */
 .symbol {
     position: absolute;
-    color: rgba(3, 227, 252, 0.4); /* Increased opacity for visibility */
+    color: rgba(3, 227, 252, 0.2);
     font-family: 'Orbitron', sans-serif;
-    font-size: 3.5rem;
     font-weight: 800;
-    user-select: none;
-    z-index: 1; 
-    animation: drift linear infinite;
+    z-index: 2;
+    pointer-events: none;
+    animation: floatUp linear infinite;
 }
 
-/* Ensure the text content sits ABOVE the symbols */
-.brief-about, .teaser-grid, .section-header {
-    position: relative;
-    z-index: 10; 
-}
-
-@keyframes drift {
-    0% { transform: translateY(0) rotate(0deg); opacity: 0.4; }
-    50% { opacity: 0.6; }
-    100% { transform: translateY(-100px) rotate(20deg); opacity: 0; }
+@keyframes floatUp {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    20% { opacity: 0.4; }
+    80% { opacity: 0.4; }
+    100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
 }
