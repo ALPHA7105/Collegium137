@@ -393,3 +393,62 @@ h1, h2 {
     cursor: pointer;
     margin-left: 10px;
 }
+
+/* Center the EST tag above the H1 */
+.tag-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+/* Brief About Styling */
+.brief-about {
+  padding: 100px 20px;
+  background: linear-gradient(to bottom, #000, #050505);
+  position: relative;
+  z-index: 10;
+}
+
+.mission-points {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 50px;
+  flex-wrap: wrap;
+}
+
+.point {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.point span {
+  color: #03e3fc;
+  font-weight: 800;
+  border-bottom: 2px solid #03e3fc;
+}
+
+/* Utility for Outline Button */
+.button-outline {
+  padding: 15px 40px;
+  background: transparent;
+  border: 1px solid rgba(3, 227, 252, 0.5);
+  color: #03e3fc;
+  font-family: 'Orbitron', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+.button-outline:hover {
+  background: rgba(3, 227, 252, 0.1);
+  border-color: #03e3fc;
+  box-shadow: 0 0 20px rgba(3, 227, 252, 0.2);
+}
