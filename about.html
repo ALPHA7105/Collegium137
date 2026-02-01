@@ -16,6 +16,63 @@
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 <link rel="stylesheet" href="style.css">
 <link rel="icon" type="image/png" href="Comm.png">
+
+<style>
+/* ONLY APPLIES TO ABOUT PAGE */
+@media (max-width: 768px) {
+    /* 1. Fix the "Who We Are" Giant Text */
+    .section-header h2 {
+        font-size: 1.6rem !important; /* Significantly smaller */
+        line-height: 1.2 !important;
+        max-width: 100% !important;
+        margin: 0 auto 20px auto !important;
+    }
+
+    /* 2. Fix Tri-Column Headings */
+    .tri-columns h2 {
+        font-size: 1.4rem !important;
+        text-align: center !important;
+    }
+
+    /* 3. Force Timeline to be VERTICAL (Fixes the line disappearing) */
+    .timeline .timeline-container, 
+    .timeline > div:last-child {
+        display: flex !important;
+        flex-direction: column !important; /* Vertical stack */
+        align-items: flex-start !important;
+        padding-left: 30px !important;
+        gap: 40px !important;
+    }
+
+    /* 4. Replace the Horizontal Line with a Vertical one */
+    /* This targets the line div you created */
+    .timeline div[style*="height: 2px"] {
+        width: 2px !important;
+        height: 100% !important;
+        left: 20px !important;
+        top: 0 !important;
+        background: linear-gradient(to bottom, transparent, #03e3fc, #03fca5, transparent) !important;
+    }
+
+    /* 5. Center the column cards and adjust padding */
+    .tri-columns > div {
+        flex-direction: column !important;
+    }
+    
+    .tri-columns div[style*="flex: 1"] {
+        width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box;
+    }
+
+    /* 6. Kill Horizontal Scroll for good */
+    html, body {
+        overflow-x: hidden !important;
+        width: 100vw;
+    }
+}
+</style>
+
 </head>
 <body>
 
