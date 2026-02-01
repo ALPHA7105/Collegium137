@@ -644,3 +644,38 @@ body {
     margin-right: 5px;
     box-shadow: 0 0 8px #03fca5;
 }
+
+.footer-socials {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.footer-socials a {
+    color: #03e3fc;
+    font-size: 0.75rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+.footer-socials a:hover {
+    opacity: 1;
+    text-shadow: 0 0 10px #03e3fc;
+}
+
+/* The "De-Gigantifier" */
+.copyright-text {
+    font-size: 0.7rem; /* Significantly smaller */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #444; /* Darker, so it recedes into the background */
+}
+
+.footer-status {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
