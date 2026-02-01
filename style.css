@@ -684,3 +684,51 @@ body {
     letter-spacing: 1px;
     text-transform: uppercase;
 }
+
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    /* 1. Shrink the Hero Text */
+    .title h1 {
+        font-size: 2.5rem !important; /* Smaller heading */
+        line-height: 1.1;
+    }
+    .title h2 {
+        font-size: 1.8rem !important;
+    }
+    .title p {
+        font-size: 0.9rem;
+        padding: 0 20px;
+    }
+
+    /* 2. Fix the Orbs/Blobs (They often block text on mobile) */
+    .orb, .bg-blob {
+        width: 300px !important;
+        height: 300px !important;
+        filter: blur(60px) !important; /* Sharper blur so it doesn't wash out everything */
+        opacity: 0.15 !important; /* Make them even subtler */
+    }
+
+    /* 3. The Grid & Floating Cards */
+    .grid {
+        background-size: 30px 30px; /* Smaller grid lines */
+    }
+    .floating-cards {
+        display: none; /* Usually best to hide these on mobile to avoid clutter */
+    }
+
+    /* 4. Teaser Grid (Make them stack 1-by-1) */
+    .teaser-grid {
+        grid-template-columns: 1fr !important; /* Force single column */
+        gap: 20px;
+        padding: 20px;
+    }
+
+    /* 5. Navbar Adjustments */
+    .navbar-links {
+        display: none; /* Hide links on mobile - usually replaced by a burger menu */
+    }
+    .navbar-logo-text {
+        font-size: 1rem;
+    }
+}
