@@ -10,57 +10,45 @@
 </head>
 <body>
 
-<!-- Navbar -->
 <div class="navbar" id="navbar">
   <div class="navbar-container">
-    <div class="navbar-logo">
+    <div class="navbar-logo" onclick="location.href='index.html'">
       <div class="beaker"><img src='Comm.png' style="width:30px; height:30px;"></div>
       <span class="navbar-logo-text">The Collegium Of Minds</span>
     </div>
     <div class="navbar-links" id="navbar-links">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#events">Events</a>
-      <a href="#contact">Contact</a>
+      <a href="about.html">Library</a>
+      <a href="projects.html">Projects</a>
+      <a href="events.html">The Lab</a>
+      <a href="contact.html" class="cta-nav">Join Us</a>
     </div>
   </div>
 </div>
 
+<main>
   <section id="home">
-    <!-- Hero Section -->
     <div class="hero" id="hero">
       <div class="grid"></div>
 
-      <!-- Orbs -->
       <div class="orb" style="width:400px; height:400px; left:10%; top:20%; background: radial-gradient(circle, #03e3fc40 0%, transparent 70%); animation: float1 20s infinite alternate;"></div>
       <div class="orb" style="width:300px; height:300px; left:80%; top:60%; background: radial-gradient(circle, #03fca540 0%, transparent 70%); animation: float2 25s infinite alternate;"></div>
-      <div class="orb" style="width:250px; height:250px; left:60%; top:10%; background: radial-gradient(circle, #03e3fc40 0%, transparent 70%); animation: float3 18s infinite alternate;"></div>
-      <div class="orb" style="width:350px; height:350px; left:20%; top:70%; background: radial-gradient(circle, #03fca540 0%, transparent 70%); animation: float4 22s infinite alternate;"></div>
-      <div class="orb" style="width:200px; height:200px; left:90%; top:30%; background: radial-gradient(circle, #03e3fc40 0%, transparent 70%); animation: float5 15s infinite alternate;"></div>
-
-      <!-- Particles -->
-      <div class="particles">
-        <div class="particle" style="left: 50%; top: 50%; background: #03e3fc;"></div>
-        <div class="particle" style="left: 60%; top: 50%; background: #03fca5;"></div>
-        <div class="particle" style="left: 40%; top: 50%; background: #03e3fc;"></div>
-        <div class="particle" style="left: 50%; top: 60%; background: #03fca5;"></div>
-      </div>
 
       <div class="title" id="title">
+        <div class="tag">EST. 2024</div>
         <h1>The Collegium</h1>
-        <br>
         <h2>Of Minds</h2>
-        <p>Where thinkers, dreamers, and innovators unite to explore ideas that shape tomorrow.</p>
-        <button class="button" onclick="location.href = '#about'">Explore Our Universe</button>
-        <br>
+        <p>A collective of thinkers and innovators redefining the boundaries of human knowledge through science, philosophy, and collaborative action.</p>
+        <div class="hero-btns">
+            <button class="button" onclick="location.href = 'projects.html'">View Our Impact</button>
+            <button class="button-outline" onclick="location.href = 'about.html'">The Philosophy</button>
+        </div>
       </div>
 
-      <!-- Floating Cards -->
       <div class="floating-cards">
-        <div class="card" style="left:15%; top:25%; animation-delay:0s;">🔬</div>
-        <div class="card" style="left:85%; top:35%; animation-delay:0.5s;">⚛️</div>
-        <div class="card" style="left:10%; top:75%; animation-delay:1s;">🧬</div>
-        <div class="card" style="left:90%; top:70%; animation-delay:1.5s;">🚀</div>
+        <div class="card" style="left:15%; top:25%;">🔬</div>
+        <div class="card" style="left:85%; top:35%;">⚛️</div>
+        <div class="card" style="left:10%; top:75%;">🧬</div>
+        <div class="card" style="left:90%; top:70%;">🚀</div>
       </div>
 
       <div class="scroll-indicator">
@@ -68,303 +56,47 @@
       </div>
     </div>
   </section>
-  
-  <section id="about">
-    <!-- Background blobs -->
-    <div class="blob blob1"></div>
-    <div class="blob blob2"></div>
 
-    <!-- Header -->
-    <div class="section-header">
-      <div class="tag">Who We Are</div>
-      <br>
-      <h2>About Us</h2>
-      <p class="description">
-      The Collegium of Minds (CoM) is a collective for thinkers, dreamers, and innovators who seek to explore the frontiers of knowledge.
-We bring together curious minds to discuss science, philosophy, art, and technology — ideas that shape the world and the future beyond it.
-At CoM, curiosity drives everything. We question assumptions, share discoveries, and challenge limits through open dialogue and creative collaboration.
-Our aim is to inspire a generation that learns not just to think, but to rethink — forging new ideas that redefine what’s possible.
-      </p>
-    </div>
-
-    <!-- Feature Grid -->
-    <div class="features">
-      <div class="feature-card">
-        <div class="feature-icon">⚛️</div>
-        <div class="feature-title">Scientific Innovation</div>
-        <div class="feature-desc">Pushing the boundaries of knowledge through experiments, research, and exploration of new ideas.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🔬</div>
-        <div class="feature-title">Research Excellence</div>
-        <div class="feature-desc">Encouraging rigorous, curiosity-driven study that combines science, philosophy, and creative thinking.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🚀</div>
-        <div class="feature-title">Future Forward</div>
-        <div class="feature-desc">Inspiring ideas and projects that anticipate the challenges and opportunities of tomorrow.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">⚡</div>
-        <div class="feature-title">Collaborative Spirit</div>
-        <div class="feature-desc">Fostering a community where thinkers, dreamers, and innovators share, discuss, and create together.</div>
-      </div>
-    </div>
-
-    <!-- Stats Grid -->
-    <div class="stats">
-      <a href="https://collegium137.vercel.app/about.html#members">
-        <div class="stat-card">
-          <div class="stat-number">20+</div>
-          <div class="stat-label">Members</div>
-        </div>
-      </a>
-      <a href="https://collegium137.vercel.app/projects.html">
-        <div class="stat-card">
-          <div class="stat-number">6</div>
-          <div class="stat-label">Projects</div>
-        </div>
-      </a>
-      <div class="stat-card">
-        <div class="stat-number">0</div>
-        <div class="stat-label">Events</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">1.5</div>
-        <div class="stat-label">Months</div>
-      </div>
-    </div>
-
-    <br>
-    <br>
+  <section class="teaser-grid">
     
-    <div class="center-btn">
-      <button class="button" onclick="location.href='about.html'">See More</button>
+    <div class="teaser-card" onclick="location.href='about.html'">
+        <div class="tag">Knowledge</div>
+        <h3>The Digital Library</h3>
+        <p>From "Physics for People in a Hurry" to Gravity research. Access our collective intelligence.</p>
+        <span class="link-arrow">Explore Archive →</span>
     </div>
+
+    <div class="teaser-card" onclick="location.href='projects.html'">
+        <div class="tag">Innovation</div>
+        <h3>Active Initiatives</h3>
+        <p>Discover DropShield AI, Nova Net, and the APPLIED Curriculum. We don't just think; we build.</p>
+        <span class="link-arrow">See Projects →</span>
+    </div>
+
+    <div class="teaser-card" onclick="location.href='contact.html'">
+        <div class="tag">Community</div>
+        <h3>Join the Network</h3>
+        <p>A global space for thinkers. Connect via WhatsApp, Instagram, or join our ThinkTanks.</p>
+        <span class="link-arrow">Apply Now →</span>
+    </div>
+
   </section>
+</main>
 
-  <hr class="section-divider">
-
-  <!-- Projects Section -->
-  <section id="projects">
-    <div class="section-header">
-      <div class="tag">What We Create</div>
-      <br>
-      <h2>Our Projects</h2>
-      <p class="description">
-    At CoM, ideas don’t stay as thoughts — they evolve into projects that make an impact.  
-    From scientific experiments and research initiatives to creative design, AI development, and interschool collaborations,  
-    each project reflects our drive to explore the unknown and turn imagination into innovation.  
-    Our members work together to solve real-world problems, experiment fearlessly, and contribute meaningfully to science, society, and the future.
-      </p>
-    </div>
-
-    <!-- Projects Grid -->
-    <div class="features">
-      <div class="feature-card">
-        <div class="feature-icon">⚛️</div>
-        <div class="feature-title">Physics For People In A Hurry</div>
-        <div class="feature-desc">
-      A book written by Sarvesh Kore and Mohamed Shahaan, in collaboration with CoM
-        </div>
-      </div>
-
-      <a href="https://dropshield-ai.streamlit.app" target="_blank">
-        <div class="feature-card">
-          <div class="feature-icon">🤖</div>
-          <div class="feature-title">DropShield AI</div>
-          <div class="feature-desc">
-        A machine learning initiative that predicts and prevents school dropouts — supporting quality education and equal opportunity.
-          </div>
-        </div>
-      </a>
-
-      <a href="https://nova-net-yfpttvfjfwkeuzqwjfxckt.streamlit.app" target="_blank">
-        <div class="feature-card">
-          <div class="feature-icon">💫</div>
-          <div class="feature-title">Nova Net</div>
-          <div class="feature-desc">
-        An interactive space platform built to simplify cosmic exploration and make astronomy accessible to everyone.
-          </div>
-        </div>
-      </a>
-
-      <a href="https://medium.com/@ssworld7105/is-gravity-an-illusion-1872b0a8b0ec" target="_blank">
-        <div class="feature-card">
-          <div class="feature-icon">🌀</div>
-          <div class="feature-title">Is Gravity An Illusion?</div>
-          <div class="feature-desc">
-        An explanatory article that explores the true nature of gravity by using Einstein’s General Theory of Relativity
-          </div>
-        </div>
-      </a>
-
-      <a href="https://medium.com/@ssworld7105/is-gravity-an-illusion-1872b0a8b0ec" target="_blank">
-        <div class="feature-card">
-          <div class="feature-icon">🚀</div>
-          <div class="feature-title">Travelling Faster Than Light?</div>
-          <div class="feature-desc">
-        An exploration of theoretical faster-than-light travel, examining warp drives, quantum vacuums, and the ethical and scientific frontiers of interstellar motion.
-        (Link to be added)
-          </div>
-        </div>
-      </a>
-
-      <a href="https://docs.google.com/document/d/1AnOXkB-xFXTOXVZaUCti2wFx4e3EfwDyKc8sUset--Q/edit?tab=t.0">
-        <div class="feature-card">
-          <div class="feature-icon">📘</div>
-          <div class="feature-title">APPLIED Curriculum</div>
-          <div class="feature-desc"> 
-        A reimagined educational framework merging theory with real-world problem-solving, designed to nurture innovation, inquiry, and creative thinking.
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <br>
-    <br>
-    
-    <div class="center-btn">
-      <button class="button" onclick="location.href='project.html'">See More</button>
-    </div>
-  </section>
-  
-  <br>
-  <br>
-  <br>
-  
-  <hr class="section-divider">
-  
-  <!-- Events Section -->
-  <section id="events">
-    <div class="section-header">
-      <div class="tag">What We Host</div>
-      <br>
-      <h2>Events & Initiative</h2>
-      <p class="description">
-      At the Collegium of Minds, every event is an experiment in curiosity — from debates and quizzes to collaborative research and hands-on workshops.
-      These gatherings are where ideas spark, intellects collide, and innovation begins.
-      Participants engage in problem-solving challenges, present their projects, and collaborate across disciplines, fostering an environment where learning is active, creative, and inspiring.
-      Every session is designed to spark curiosity, encourage critical thinking, and nurture the next generation of innovators, thinkers, and visionaries.
-      </p>
-    </div>
-    
-    <!-- Events Grid -->
-    <div class="features">
-      <div class="feature-card">
-        <div class="feature-icon">💡</div>
-        <div class="feature-title">Debate Symposium</div>
-        <div class="feature-desc">
-          A monthly event where members challenge perspectives, explore philosophies, and debate scientific and ethical questions.
-        </div>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">🔬</div>
-        <div class="feature-title">Innovation Fair</div>
-        <div class="feature-desc">
-          Our annual showcase of student-led experiments, prototypes, and research projects — where ideas meet reality.
-        </div>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">🧠</div>
-        <div class="feature-title">ThinkTank Sessions</div>
-        <div class="feature-desc">
-          Weekly collaborative discussions that bring together members from all disciplines to brainstorm projects and research directions.
-        </div>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">🎓</div>
-        <div class="feature-title">Mentorship Workshops</div>
-        <div class="feature-desc">
-          Interactive sessions led by senior members and educators, focusing on academic excellence, creativity, and leadership in science.
-        </div>
-      </div>
-    </div>
-
-    <br>
-    <br>
-    
-    <div class="center-btn">
-      <button class="button" onclick="location.href='event.html'">See More</button>
-    </div>
-  </section>
-
-  <br>
-  <br>
-  <br>
-
-  <hr class="section-divider">
-
-  <!-- Contacts section -->
-  <section id="contact">
-    <div class="section-header">
-      <div class="tag">Connect With Us</div>
-      <br>
-      <h2>Contact</h2>
-      <p class="description">
-        Have questions, ideas, or want to join the Collegium of Minds?  
-        Reach out — we’re always open to collaboration and curiosity.
-      </p>
-    </div>
-
-    <div class="contact-cards">
-      <a href="mailto:collegiumofminds@gmail.com" class="feature-card">
-        <div class="feature-icon">📧</div>
-        <div class="feature-title">Email</div>
-        <div class="feature-desc">collegiumofminds@gmail.com</div>
-      </a>
-
-      <a href="https://chat.whatsapp.com/YOUR_COMMUNITY_LINK" target="_blank" class="feature-card">
-        <div class="feature-icon">💬</div>
-        <div class="feature-title">WhatsApp Community</div>
-        <div class="feature-desc">Join our WhatsApp group</div>
-      </a>
-
-      <a href="https://instagram.com/YOUR_PAGE" target="_blank" class="feature-card">
-        <div class="feature-icon">🌐</div>
-        <div class="feature-title">Instagram</div>
-        <div class="feature-desc">@collegiumofminds</div>
-      </a>
-    </div>
-  </section>
-
-  
-  
 <script>
-  // Navbar animation on load
+  // Smooth Navbar reveal
   window.addEventListener('load', () => {
     const navbar = document.getElementById('navbar');
     navbar.style.top = '0';
     navbar.style.opacity = '1';
-
-    // Animate navbar links sequentially
-    const links = document.querySelectorAll('.navbar-links a');
-    links.forEach((link, i) => {
-      link.style.opacity = 0;
-      link.style.transform = 'translateY(-20px)';
-      setTimeout(() => {
-        link.style.transition = 'all 0.5s ease-out';
-        link.style.opacity = 1;
-        link.style.transform = 'translateY(0)';
-      }, i * 200);
-    });
   });
 
-  // Scroll-based title movement and fade
-  const title = document.getElementById('title');
+  // Parallax Hero
   window.addEventListener('scroll', () => {
     const scroll = window.scrollY;
-    title.style.transform = `translateY(${scroll * 0.3}px)`;
-    title.style.opacity = Math.max(1 - scroll / 300, 0);
+    document.getElementById('title').style.transform = `translateY(${scroll * 0.2}px)`;
+    document.querySelector('.grid').style.transform = `translateY(${scroll * 0.1}px)`;
   });
-
-  // When the page loads with a hash, remove it without reloading
-  if (window.location.hash) {
-    history.replaceState(null, null, ' ');
-  }
 </script>
 
 </body>
