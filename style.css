@@ -515,33 +515,3 @@ body {
     box-shadow: 0 0 15px rgba(3, 227, 252, 0.2);
 }
 
-/* Container for the moving elements */
-.intellectual-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: -1; /* Behind text */
-    pointer-events: none;
-}
-
-/* Individual Symbol Styling */
-.symbol {
-    position: absolute;
-    color: rgba(3, 227, 252, 0.15); /* Very faint blue */
-    font-family: 'serif';
-    font-size: 1.5rem;
-    font-weight: bold;
-    user-select: none;
-    animation: drift linear infinite;
-}
-
-/* Slow, drifting movement */
-@keyframes drift {
-    from { transform: translateY(0) rotate(0deg); opacity: 0; }
-    10% { opacity: 0.5; }
-    90% { opacity: 0.5; }
-    to { transform: translateY(-100px) rotate(360deg); opacity: 0; }
-}
