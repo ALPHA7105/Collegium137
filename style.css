@@ -642,10 +642,12 @@ body {
     background: #ff4d4d;
     border-radius: 50%;
     margin-right: 5px;
-    box-shadow: 0 0 8px #03fca5;
-    /* Red: background: #ff4d4d;
-       Green: background: #03fca5;
-    */
+    box-shadow: 0 0 8px #ff4d4d;
+/* Red: background: #ff4d4d;
+        box-shadow: 0 0 8px #ff4d4d;
+ Green: background: #03fca5;
+        box-shadow: 0 0 8px #03fca5;
+*/
 }
 
 .footer-socials {
