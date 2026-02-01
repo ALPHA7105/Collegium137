@@ -538,22 +538,28 @@ body {
     pointer-events: none; 
 }
 
-@keyframes deepFall {
-    0% { 
-        transform: translateY(-10vh) rotate(0deg); 
-    }
-    100% { 
-        /* Travels well beyond the bottom to ensure coverage */
-        transform: translateY(150vh) rotate(360deg); 
-    }
-}
-
 .symbol, .p {
     position: absolute;
-    color: rgba(3, 227, 252, 0.4);
+    color: rgba(3, 227, 252, 0.25);
     font-family: 'Orbitron', sans-serif;
     font-weight: 800;
     pointer-events: none;
     animation: deepFall linear infinite;
-    top: 0;
+    top: -5%; /* Start slightly above */
+}
+
+.p { background: #03e3fc; border-radius: 50%; }
+
+@keyframes deepFall {
+    0% { 
+        transform: translateY(0) rotate(0deg); 
+        opacity: 0; 
+    }
+    10% { opacity: 0.4; }
+    90% { opacity: 0.4; }
+    100% { 
+        /* This travels from top of HUB to bottom of HUB */
+        transform: translateY(1000px) rotate(360deg); 
+        opacity: 0; 
+    }
 }
