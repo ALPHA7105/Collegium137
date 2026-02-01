@@ -207,3 +207,68 @@ h2 {
     90% { opacity: 0.4; }
     100% { transform: translateY(1200px) rotate(360deg); opacity: 0; }
 }
+
+
+
+/* --- THE STARFIELD & GRID DEPTH --- */
+#starfield {
+    position: absolute;
+    inset: 0;
+    z-index: -1; /* Keeps stars behind everything */
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.grid {
+    position: absolute;
+    inset: 0;
+    z-index: -1; /* Behind title, in front of stars */
+    opacity: 0.15;
+    background-image: 
+        linear-gradient(#03e3fc 1px, transparent 1px),
+        linear-gradient(90deg, #03e3fc 1px, transparent 1px);
+    background-size: 50px 50px;
+    transform-origin: center;
+    /* This allows the JS parallax to work without moving the whole page */
+    will-change: transform; 
+}
+
+/* --- TITLE PARALLAX CONTAINER --- */
+.title {
+    position: relative;
+    text-align: center;
+    z-index: 10;
+    will-change: transform; /* Helps JS animate smoothly */
+}
+
+/* --- ANIMATED HEADINGS RE-ADDED --- */
+h1 {
+    font-size: clamp(4rem, 12vw, 10rem);
+    background: linear-gradient(135deg, #03e3fc 0%, #03fca5 50%, #03e3fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* Rotation animation for that 3D look */
+    animation: rotateY 5s infinite ease-in-out;
+    display: block;
+}
+
+@keyframes rotateY {
+    0%, 100% { transform: perspective(1000px) rotateY(-5deg); }
+    50% { transform: perspective(1000px) rotateY(5deg); }
+}
+
+h2 {
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    background: linear-gradient(135deg, #03fca5 0%, #03e3fc 50%, #03fca5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradientMove 5s infinite linear;
+    display: block;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
