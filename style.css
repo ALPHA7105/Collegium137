@@ -453,3 +453,38 @@ h1, h2 {
   border-color: #03e3fc;
   box-shadow: 0 0 20px rgba(3, 227, 252, 0.2);
 }
+
+
+.section-divider {
+  border: none;
+  height: 1px;
+  width: 60%; /* Not full width, looks more elegant */
+  margin: 80px auto;
+  /* A bluish gradient that fades to transparent at both ends */
+  background: linear-gradient(
+    90deg, 
+    transparent 0%, 
+    rgba(3, 227, 252, 0.8) 50%, 
+    transparent 100%
+  );
+  position: relative;
+  overflow: visible;
+}
+
+/* Adding a glow effect underneath the line */
+.section-divider::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 15px;
+  background: radial-gradient(
+    circle, 
+    rgba(3, 227, 252, 0.4) 0%, 
+    transparent 80%
+  );
+  filter: blur(5px);
+  z-index: -1;
+}
