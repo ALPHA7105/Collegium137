@@ -488,3 +488,29 @@ h1, h2 {
   filter: blur(5px);
   z-index: -1;
 }
+
+/* Ensure the main container and sections have no competing backgrounds */
+main, .brief-about, .teaser-grid {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Force the body to be the single source of color */
+body {
+    background-color: #000 !important;
+}
+
+/* The divider - centered and bluish as requested */
+.section-divider {
+    border: none;
+    height: 1px;
+    width: 50%; /* Tapered width */
+    margin: 60px auto;
+    background: linear-gradient(
+        90deg, 
+        transparent, 
+        rgba(3, 227, 252, 0.6), 
+        transparent
+    );
+    box-shadow: 0 0 15px rgba(3, 227, 252, 0.2);
+}
