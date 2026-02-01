@@ -1487,30 +1487,47 @@ This tells the browser: "If the screen is smaller than 768px, change how these s
 
 CSS
 
+/* --- THE MOBILE ADAPTER --- */
 @media (max-width: 768px) {
-  /* Stack the 3-column philosophy cards */
-  .tri-columns > div {
-    flex-direction: column !important;
-  }
-  
-  /* Make the timeline vertical again on mobile for readability */
-  .timeline-flex-container {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    padding-left: 20px;
-  }
+    /* 1. Stop the page from shaking/scrolling sideways */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
 
-  .timeline-line-horizontal {
-    display: none; /* Hide the horizontal line */
-  }
+    /* 2. Shrink the huge titles to fit the screen */
+    h1 { font-size: 3.5rem !important; }
+    h2 { font-size: 1.8rem !important; }
 
-  .timeline-item {
-    text-align: left !important;
-    margin-bottom: 40px;
-  }
-  
-  /* Shrink the massive About Us text so it doesn't break the screen */
-  h1 {
-    font-size: 4rem !important;
-  }
+    /* 3. Force the 3 columns and the timeline to stack vertically */
+    .tri-columns > div, 
+    .timeline .timeline-container,
+    .timeline > div:last-child { 
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 30px !important;
+    }
+
+    /* 4. Fix the "Who We Are" header widths */
+    .section-header, .description {
+        padding: 40px 20px !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    /* 5. Clean up the horizontal timeline line (hide it on phones) */
+    .timeline div[style*="position: absolute"] {
+        display: none !important; 
+    }
+    
+    /* 6. Fix widths of cards/columns so they don't overflow */
+    .tri-columns div, .timeline-item {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin-left: 0 !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
 }
