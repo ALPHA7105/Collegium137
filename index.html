@@ -76,7 +76,32 @@
     <div class="particle-layer" id="particle-container"></div>
 
       <div class="hub-content" style="position: relative; z-index: 10;">
-        <section class="brief-about">
+
+        <!-- STATS -->
+        <section class="stats" style="margin-top: 50px; margin-bottom: 50px;">
+            <div class="stats-strip reveal">
+              <div class="stats-inner">
+                <div class="stat-cell">
+                  <span class="stat-num">8+</span>
+                  <div class="stat-label">Months</div>
+                </div>
+                <div class="stat-cell">
+                  <span class="stat-num">46+</span>
+                  <div class="stat-label">Members</div>
+                </div>
+                <div class="stat-cell">
+                  <span class="stat-num">—</span>
+                  <div class="stat-label">Projects in progress</div>
+                </div>
+                <div class="stat-cell">
+                  <span class="stat-num">∞</span>
+                  <div class="stat-label">Ideas on the table</div>
+                </div>
+              </div>
+            </div>
+        </section>
+
+        <section id="vision">
           <div class="section-header">
             <div class="tag">The Vision</div>
             <h2>Think. Explore. Discover.</h2>
@@ -84,57 +109,318 @@
               The Collegium of Minds welcomes individuals passionate about exploring science 🔬, mathematics ➗, philosophy 🧠, literature 📚, history 🏛️, technology 💻, arts 🎨, and beyond. Here, ideas are shared, questions are celebrated, and minds come together to discover, discuss, and innovate 💡. Join us in a space where curiosity knows no bounds.
             </p>
             <div class="center-btn" style="margin-top: 30px;">
-              <button class="button-outline" onclick="location.href='about.html'">More About Us</button>
+              <button class="button-outline" onclick="location.href='#about'">More About Us</button>
             </div>
           </div>
         </section>
 
-        <!-- STATS -->
-        <div class="stats-strip reveal">
-          <div class="stats-inner">
-            <div class="stat-cell">
-              <span class="stat-num">8+</span>
-              <div class="stat-label">Months</div>
+
+        <hr class="section-divider">
+        
+
+        <section id="about">
+          <div class="about-layout">
+            <div class="reveal">
+              <div class="tag">About Us</div>
+              <h2 class="section-heading">Curiosity over conformity.</h2>
+              <p class="description" style="text-align: left">
+                The Collegium of Minds is not just a club—it is an open intellectual space for anyone driven by curiosity rather than conformity. It exists for those who believe that learning is a lifelong process, and that the most meaningful questions often have no immediate or final answers.
+                <br><br>
+                CoM functions as a decentralized laboratory of ideas. It brings together individuals from different backgrounds, disciplines, and stages of life to explore thought without rigid boundaries. Here, science meets philosophy, technology intersects with society, and abstract theories are examined for their real-world relevance.
+                <br><br>
+                From discussions on physics, space, and artificial intelligence to reflections on history, ethics, and human progress, CoM encourages depth over speed and understanding over memorization. The emphasis is not on credentials or titles, but on clarity of thought, intellectual honesty, and the courage to question assumptions.
+              </p>
+              <br><br>
+              <div class="center-btn">
+                <button class="button-outline" style="display:inline-flex;" onclick="location.href='#join'">Get Involved →</button>
+              </div>
             </div>
-            <div class="stat-cell">
-              <span class="stat-num">46+</span>
-              <div class="stat-label">Members</div>
-            </div>
-            <div class="stat-cell">
-              <span class="stat-num">—</span>
-              <div class="stat-label">Projects in progress</div>
-            </div>
-            <div class="stat-cell">
-              <span class="stat-num">∞</span>
-              <div class="stat-label">Ideas on the table</div>
+            <div class="about-visual reveal" style="padding-top: 100px;">
+              <div class="about-grid">
+                <div class="about-tile">
+                  <span class="tile-icon">🧠</span>
+                  <div class="tile-title">Intellectual Exploration</div>
+                  <div class="tile-body">Philosophy, psychology, systems thinking, and the questions that resist easy answers.</div>
+                </div>
+                <div class="about-tile">
+                  <span class="tile-icon">🤖</span>
+                  <div class="tile-title">Artificial Intelligence</div>
+                  <div class="tile-body">AI systems, machine learning, ethics, and human–machine futures.</div>
+                </div>
+                <div class="about-tile">
+                  <span class="tile-icon">🚀</span>
+                  <div class="tile-title">Space & Science</div>
+                  <div class="tile-body">Astrophysics, simulations, and science-driven exploration of the cosmos.</div>
+                </div>
+                <div class="about-tile">
+                  <span class="tile-icon">⚒️</span>
+                  <div class="tile-title">Innovation & Engineering</div>
+                  <div class="tile-body">Building ideas into real systems, products, and solutions.</div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
 
         <hr class="section-divider">
 
-        <section class="teaser-grid">
-          <div class="teaser-card" onclick="location.href='about.html'">
-              <div class="tag">Knowledge</div>
-              <h3>The Digital Library</h3>
-              <p>Lorem Ipsum...</p>
-              <span class="link-arrow">Read Articles →</span>
+        <!-- QUESTIONS WE ASK -->
+        <section id="questions" style="padding: 80px 32px; max-width: 1200px; margin: 0 auto;">
+          <div class="questions-header reveal">
+            <div class="tag" style="margin: 0 auto 16px;">Questions We Ask</div>
+            <br>
+            <h2 class="section-heading" style="text-align:center;">This is what drives us.</h2>
           </div>
 
-          <div class="teaser-card" onclick="location.href='projects.html'">
-              <div class="tag">Action</div>
-              <h3>Our Initiatives</h3>
-              <p>Lorem Ipsum again...</p>
-              <span class="link-arrow">Explore Projects →</span>
+          <div class="questions-grid reveal">
+            <div class="question-card">
+              <div class="question-text">Is consciousness computable, or does it require something beyond matter?</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">What actually happens inside a black hole, and can we ever know?</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">Can civilization survive the arrival of artificial superintelligence?</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">Is mathematics discovered, or invented by the human mind?</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">What is intelligence — and does our definition of it even make sense?</div>
+            </div>
+            <div class="question-card">
+              <div class="question-text">Could spacetime itself emerge from information? What would that mean?</div>
+            </div>
           </div>
 
-          <div class="teaser-card" onclick="location.href='events.html'">
-              <div class="tag">The Lab</div>
-              <h3>Events & Quizzes</h3>
-              <p>I really don't know what to put yet... Lorem Ipsum, I guess...</p>
-              <span class="link-arrow">See Calendar →</span>
+          <div class="qotw reveal">
+            <div class="qotw-label">Question<br>of the Week</div>
+            <div class="qotw-text">
+              "If the speed of light is constant for all observers — what actually changes?"
+            </div>
           </div>
         </section>
+
+        <hr class="section-divider">
+
+        <!-- PROJECTS -->
+        <section id="projects">
+          <div class="projects-header reveal">
+            <div>
+              <div class="tag">Projects</div><br>
+              <h2 class="section-heading">What we're building</h2>
+            </div>
+          </div>
+
+          <div class="projects-grid reveal" style="padding: 0 175px;">
+            <div class="project-card featured">
+              <div class="project-chip chip-blue">Flagship · In Planning</div>
+              <div class="project-title">ChatDIS</div>
+              <div class="project-body">
+                An experimental AI interface exploring how educational systems could become more accessible, intelligent, and conversational — built on natural language and verified knowledge infrastructure.
+                <br><br>
+                <em style="font-size:0.8rem; color: var(--dimmer);">Placeholder — details take shape once the team forms.</em>
+              </div>
+              <div class="project-footer">
+                <div class="project-members">Looking for: AI / Dev / Design</div>
+                <div class="project-status"><div class="status-dot dot-planning"></div> Planning phase</div>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-chip chip-green">Environment</div>
+              <div class="project-title">Eco Drone Concept</div>
+              <div class="project-body">A student-designed drone concept for environmental monitoring — air quality, heat mapping, and sustainability tracking across campus and beyond.</div>
+              <div class="project-footer">
+                <div class="project-members">Open roles</div>
+                <div class="project-status"><div class="status-dot dot-idea"></div> Idea stage</div>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-chip chip-violet">Design</div>
+              <div class="project-title">Mars Habitat Sim</div>
+              <div class="project-body">A 3D simulation of what a sustainable Mars colony might look like — resource management, architecture, life support systems.</div>
+              <div class="project-footer">
+                <div class="project-members">Open roles</div>
+                <div class="project-status"><div class="status-dot dot-idea"></div> Idea stage</div>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-chip chip-amber">Hardware</div>
+              <div class="project-title">Open Hardware Lab</div>
+              <div class="project-body">A shared inventory of Arduino kits, sensors, and components for club members to use on any project. Open to all skill levels.</div>
+              <div class="project-footer">
+                <div class="project-members">All welcome</div>
+                <div class="project-status"><div class="status-dot dot-planning"></div> Planning phase</div>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-chip chip-pink">Open</div>
+              <div class="project-title">Your Project Here</div>
+              <div class="project-body">Got an idea? Bring it. If it solves a real problem or pushes a boundary, we'll help you build a team around it.</div>
+              <div class="project-footer">
+                <div class="project-members">Pitch it to us</div>
+                <div class="project-status"><div class="status-dot dot-idea"></div> Open to ideas</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- EVENTS -->
+        <section id="events">
+          <div class="events-layout">
+            <div class="events-list reveal">
+              <div class="section-tag">Events</div>
+              <h2 class="section-heading" style="margin-bottom: 30px;">What's coming up</h2>
+
+              <div class="event-row active">
+                <div class="event-date-box"><div class="event-month">TBD</div><div class="event-day">00/00/000—</div></div>
+                <div class="event-info">
+                  <div class="event-name">Kickoff Meeting & Intro Day</div>
+                  <div class="event-meta">All students welcome · Location TBD</div>
+                </div>
+                <div class="event-arrow">→</div>
+              </div>
+
+              <div class="event-row">
+                <div class="event-date-box"><div class="event-month">TBD</div><div class="event-day">—</div></div>
+                <div class="event-info">
+                  <div class="event-name">AI & Machine Learning Workshop</div>
+                  <div class="event-meta">Hands-on session · Beginners welcome</div>
+                </div>
+                <div class="event-arrow">→</div>
+              </div>
+
+              <div class="event-row">
+                <div class="event-date-box"><div class="event-month">TBD</div><div class="event-day">—</div></div>
+                <div class="event-info">
+                  <div class="event-name">24-Hour Innovation Hackathon</div>
+                  <div class="event-meta">Team event · Details coming soon</div>
+                </div>
+                <div class="event-arrow">→</div>
+              </div>
+
+              <div class="event-row">
+                <div class="event-date-box"><div class="event-month">TBD</div><div class="event-day">—</div></div>
+                <div class="event-info">
+                  <div class="event-name">Space Tech Seminar</div>
+                  <div class="event-meta">Guest talk · Astrophysics & rocketry</div>
+                </div>
+                <div class="event-arrow">→</div>
+              </div>
+
+              <div class="event-row">
+                <div class="event-date-box"><div class="event-month">TBD</div><div class="event-day">—</div></div>
+                <div class="event-info">
+                  <div class="event-name">End-of-Year Demo Day</div>
+                  <div class="event-meta">Showcase to school · Projects presented</div>
+                </div>
+                <div class="event-arrow">→</div>
+              </div>
+            </div>
+
+            <div class="event-feature reveal">
+              <div class="project-chip chip-blue feature-tag">Signature Event</div>
+              <div class="feature-title">Innovation Hackathon</div>
+              <p class="feature-desc">
+                Our flagship 24-hour challenge where teams compete to design, build, and pitch solutions to real-world problems. Open to all students regardless of experience.
+                <br><br>
+                Dates and theme to be announced. Follow the club for updates.
+              </p>
+              <div class="feature-details">
+                <div class="detail-row"><span class="detail-icon">📍</span> DIS Campus — Location TBD</div>
+                <div class="detail-row"><span class="detail-icon">👥</span> Teams of 3–5 students</div>
+                <div class="detail-row"><span class="detail-icon">🏆</span> Prizes to be confirmed</div>
+                <div class="detail-row"><span class="detail-icon">📅</span> Date TBD — Sign up early</div>
+              </div>
+              <br>
+              <a href="#join" class="btn-primary">Register Interest →</a>
+            </div>
+          </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- JOIN -->
+        <section id="join">
+          <div class="join-inner">
+            <div class="reveal">
+              <div class="section-tag">Join</div>
+              <h2 class="section-heading">Be part of something new.</h2>
+              <p class="section-body">
+                We're in our founding year, which means you won't just join a club — you'll help shape it. Every role, event, and project we build from here will carry your fingerprints.
+              </p>
+              <div class="join-perks">
+                <div class="perk">
+                  <div class="perk-icon blue">🛠</div>
+                  <div>
+                    <div class="perk-title">Build real things</div>
+                    <div class="perk-body">Work on projects that actually ship — from AI tools to hardware prototypes.</div>
+                  </div>
+                </div>
+                <div class="perk">
+                  <div class="perk-icon violet">🤝</div>
+                  <div>
+                    <div class="perk-title">Find your people</div>
+                    <div class="perk-body">Meet students who think like you — curious, ambitious, and unafraid to try things.</div>
+                  </div>
+                </div>
+                <div class="perk">
+                  <div class="perk-icon cyan">🌍</div>
+                  <div>
+                    <div class="perk-title">Compete & showcase</div>
+                    <div class="perk-body">Represent DIS at hackathons, exhibitions, and innovation challenges across the region.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="join-form reveal">
+              <div class="form-title">Express Interest</div>
+              <div class="form-row">
+                <label>Full Name</label>
+                <input class="form-input" type="text" placeholder="Your name">
+              </div>
+              <div class="form-row">
+                <label>Student Email</label>
+                <input class="form-input" type="email" placeholder="your.name@dunes.ae">
+              </div>
+              <div class="form-row">
+                <label>Year / Grade</label>
+                <select class="form-select form-input">
+                  <option value="" disabled selected>Select your grade</option>
+                  <option>Grade 9</option>
+                  <option>Grade 10</option>
+                  <option>Grade 11</option>
+                  <option>Grade 12</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label>What interests you most?</label>
+                <select class="form-select form-input">
+                  <option value="" disabled selected>Pick one</option>
+                  <option>Artificial Intelligence / ML</option>
+                  <option>Robotics & Hardware</option>
+                  <option>Space & Science</option>
+                  <option>App / Web Development</option>
+                  <option>Philosophy & Humanities</option>
+                  <option>Design & Creative Tech</option>
+                  <option>Not sure yet — just curious</option>
+                </select>
+              </div>
+              <button class="form-submit" onclick="alert('Thanks for your interest! We\'ll reach out soon 🚀')">Submit Expression of Interest →</button>
+              <p style="font-size:0.72rem; color: var(--dimmer); text-align:center; margin-top:14px; font-weight:300;">No commitments yet — just let us know you're interested.</p>
+            </div>
+          </div>
+        </section>
+
+
       </div> 
   </div> 
 </main>
